@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F31B9AC618A5D07B00B5D654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC518A5D07B00B5D654 /* Foundation.framework */; };
+		F31B9AC818A5D07B00B5D654 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC718A5D07B00B5D654 /* CoreGraphics.framework */; };
+		F31B9ACA18A5D07B00B5D654 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC918A5D07B00B5D654 /* UIKit.framework */; };
+		F31B9AD018A5D07B00B5D654 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31B9ACE18A5D07B00B5D654 /* InfoPlist.strings */; };
+		F31B9AD218A5D07B00B5D654 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9AD118A5D07B00B5D654 /* main.m */; };
+		F31B9AD618A5D07B00B5D654 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9AD518A5D07B00B5D654 /* AppDelegate.m */; };
+		F31B9AD918A5D07B00B5D654 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31B9AD718A5D07B00B5D654 /* Main_iPhone.storyboard */; };
+		F31B9ADC18A5D07B00B5D654 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31B9ADA18A5D07B00B5D654 /* Main_iPad.storyboard */; };
+		F31B9ADF18A5D07B00B5D654 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9ADE18A5D07B00B5D654 /* ViewController.m */; };
+		F31B9AE118A5D07B00B5D654 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31B9AE018A5D07B00B5D654 /* Images.xcassets */; };
+		F31B9AE818A5D07C00B5D654 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AE718A5D07C00B5D654 /* XCTest.framework */; };
+		F31B9AE918A5D07C00B5D654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC518A5D07B00B5D654 /* Foundation.framework */; };
+		F31B9AEA18A5D07C00B5D654 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC918A5D07B00B5D654 /* UIKit.framework */; };
+		F31B9AF218A5D07C00B5D654 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F31B9AF018A5D07C00B5D654 /* InfoPlist.strings */; };
+		F31B9AF418A5D07C00B5D654 /* TaxiCDMXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9AF318A5D07C00B5D654 /* TaxiCDMXTests.m */; };
+		F31B9B0518A5D0ED00B5D654 /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9AFE18A5D0ED00B5D654 /* InitViewController.m */; };
+		F31B9B0618A5D0ED00B5D654 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0018A5D0ED00B5D654 /* MenuViewController.m */; };
+		F31B9B0718A5D0ED00B5D654 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0218A5D0ED00B5D654 /* MainViewController.m */; };
+		F31B9B0818A5D0ED00B5D654 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0418A5D0ED00B5D654 /* SecondViewController.m */; };
+		F31B9B0A18A5D0EE00B5D654 /* menuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F31B9B0918A5D0EE00B5D654 /* menuButton@2x.png */; };
+		F31B9B0F18A5D0FF00B5D654 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */; };
+		F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */; };
+		F31B9B1518A60F9F00B5D654 /* OpcionesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B1418A60F9F00B5D654 /* OpcionesViewController.m */; };
+		F31B9B1818A61CA000B5D654 /* ContentCeldaView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B1718A61CA000B5D654 /* ContentCeldaView.m */; };
+		F3529A4118A9D3EA00C44CB2 /* registrado.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4018A9D3EA00C44CB2 /* registrado.png */; };
+		F3529A4518A9D4DD00C44CB2 /* noregistrado.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4418A9D4DD00C44CB2 /* noregistrado.png */; };
+		F3529A4818A9D57A00C44CB2 /* mal.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4618A9D57A00C44CB2 /* mal.png */; };
+		F3529A4918A9D57A00C44CB2 /* bien.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4718A9D57A00C44CB2 /* bien.png */; };
+		F3529A4B18A9DA0600C44CB2 /* green_taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4A18A9DA0600C44CB2 /* green_taxi.png */; };
+		F3529A4D18A9DA2600C44CB2 /* pollution_taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4C18A9DA2600C44CB2 /* pollution_taxi.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F31B9AEB18A5D07C00B5D654 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F31B9ABA18A5D07B00B5D654 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F31B9AC118A5D07B00B5D654;
+			remoteInfo = TaxiCDMX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F31B9AC218A5D07B00B5D654 /* TaxiCDMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxiCDMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31B9AC518A5D07B00B5D654 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F31B9AC718A5D07B00B5D654 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F31B9AC918A5D07B00B5D654 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F31B9ACD18A5D07B00B5D654 /* TaxiCDMX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiCDMX-Info.plist"; sourceTree = "<group>"; };
+		F31B9ACF18A5D07B00B5D654 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F31B9AD118A5D07B00B5D654 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F31B9AD318A5D07B00B5D654 /* TaxiCDMX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaxiCDMX-Prefix.pch"; sourceTree = "<group>"; };
+		F31B9AD418A5D07B00B5D654 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F31B9AD518A5D07B00B5D654 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F31B9AD818A5D07B00B5D654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F31B9ADB18A5D07B00B5D654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		F31B9ADD18A5D07B00B5D654 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F31B9ADE18A5D07B00B5D654 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F31B9AE018A5D07B00B5D654 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F31B9AE618A5D07C00B5D654 /* TaxiCDMXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiCDMXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31B9AE718A5D07C00B5D654 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F31B9AEF18A5D07C00B5D654 /* TaxiCDMXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaxiCDMXTests-Info.plist"; sourceTree = "<group>"; };
+		F31B9AF118A5D07C00B5D654 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F31B9AF318A5D07C00B5D654 /* TaxiCDMXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaxiCDMXTests.m; sourceTree = "<group>"; };
+		F31B9AFD18A5D0ED00B5D654 /* InitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitViewController.h; sourceTree = "<group>"; };
+		F31B9AFE18A5D0ED00B5D654 /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
+		F31B9AFF18A5D0ED00B5D654 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		F31B9B0018A5D0ED00B5D654 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		F31B9B0118A5D0ED00B5D654 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		F31B9B0218A5D0ED00B5D654 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		F31B9B0318A5D0ED00B5D654 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		F31B9B0418A5D0ED00B5D654 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		F31B9B0918A5D0EE00B5D654 /* menuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuButton@2x.png"; sourceTree = "<group>"; };
+		F31B9B0B18A5D0FF00B5D654 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		F31B9B0D18A5D0FF00B5D654 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		F31B9B1318A60F9F00B5D654 /* OpcionesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpcionesViewController.h; sourceTree = "<group>"; };
+		F31B9B1418A60F9F00B5D654 /* OpcionesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpcionesViewController.m; sourceTree = "<group>"; };
+		F31B9B1618A61CA000B5D654 /* ContentCeldaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCeldaView.h; sourceTree = "<group>"; };
+		F31B9B1718A61CA000B5D654 /* ContentCeldaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCeldaView.m; sourceTree = "<group>"; };
+		F3529A4018A9D3EA00C44CB2 /* registrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registrado.png; sourceTree = "<group>"; };
+		F3529A4418A9D4DD00C44CB2 /* noregistrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noregistrado.png; sourceTree = "<group>"; };
+		F3529A4618A9D57A00C44CB2 /* mal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mal.png; sourceTree = "<group>"; };
+		F3529A4718A9D57A00C44CB2 /* bien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bien.png; sourceTree = "<group>"; };
+		F3529A4A18A9DA0600C44CB2 /* green_taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_taxi.png; sourceTree = "<group>"; };
+		F3529A4C18A9DA2600C44CB2 /* pollution_taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollution_taxi.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F31B9ABF18A5D07B00B5D654 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31B9AC818A5D07B00B5D654 /* CoreGraphics.framework in Frameworks */,
+				F31B9ACA18A5D07B00B5D654 /* UIKit.framework in Frameworks */,
+				F31B9AC618A5D07B00B5D654 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F31B9AE318A5D07C00B5D654 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31B9AE818A5D07C00B5D654 /* XCTest.framework in Frameworks */,
+				F31B9AEA18A5D07C00B5D654 /* UIKit.framework in Frameworks */,
+				F31B9AE918A5D07C00B5D654 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F31B9AB918A5D07B00B5D654 = {
+			isa = PBXGroup;
+			children = (
+				F3529A4C18A9DA2600C44CB2 /* pollution_taxi.png */,
+				F31B9ACB18A5D07B00B5D654 /* TaxiCDMX */,
+				F31B9AED18A5D07C00B5D654 /* TaxiCDMXTests */,
+				F31B9AC418A5D07B00B5D654 /* Frameworks */,
+				F31B9AC318A5D07B00B5D654 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F31B9AC318A5D07B00B5D654 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9AC218A5D07B00B5D654 /* TaxiCDMX.app */,
+				F31B9AE618A5D07C00B5D654 /* TaxiCDMXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F31B9AC418A5D07B00B5D654 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9AC518A5D07B00B5D654 /* Foundation.framework */,
+				F31B9AC718A5D07B00B5D654 /* CoreGraphics.framework */,
+				F31B9AC918A5D07B00B5D654 /* UIKit.framework */,
+				F31B9AE718A5D07C00B5D654 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F31B9ACB18A5D07B00B5D654 /* TaxiCDMX */ = {
+			isa = PBXGroup;
+			children = (
+				F3529A4A18A9DA0600C44CB2 /* green_taxi.png */,
+				F3529A4018A9D3EA00C44CB2 /* registrado.png */,
+				F3529A4418A9D4DD00C44CB2 /* noregistrado.png */,
+				F3529A4618A9D57A00C44CB2 /* mal.png */,
+				F3529A4718A9D57A00C44CB2 /* bien.png */,
+				F31B9B0B18A5D0FF00B5D654 /* ECSlidingViewController.h */,
+				F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */,
+				F31B9B0D18A5D0FF00B5D654 /* UIImage+ImageWithUIView.h */,
+				F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */,
+				F31B9B0918A5D0EE00B5D654 /* menuButton@2x.png */,
+				F31B9AFD18A5D0ED00B5D654 /* InitViewController.h */,
+				F31B9AFE18A5D0ED00B5D654 /* InitViewController.m */,
+				F31B9AFF18A5D0ED00B5D654 /* MenuViewController.h */,
+				F31B9B0018A5D0ED00B5D654 /* MenuViewController.m */,
+				F31B9B0118A5D0ED00B5D654 /* MainViewController.h */,
+				F31B9B0218A5D0ED00B5D654 /* MainViewController.m */,
+				F31B9B0318A5D0ED00B5D654 /* SecondViewController.h */,
+				F31B9B0418A5D0ED00B5D654 /* SecondViewController.m */,
+				F31B9B1318A60F9F00B5D654 /* OpcionesViewController.h */,
+				F31B9B1418A60F9F00B5D654 /* OpcionesViewController.m */,
+				F31B9AD418A5D07B00B5D654 /* AppDelegate.h */,
+				F31B9AD518A5D07B00B5D654 /* AppDelegate.m */,
+				F31B9AD718A5D07B00B5D654 /* Main_iPhone.storyboard */,
+				F31B9B1618A61CA000B5D654 /* ContentCeldaView.h */,
+				F31B9B1718A61CA000B5D654 /* ContentCeldaView.m */,
+				F31B9ADA18A5D07B00B5D654 /* Main_iPad.storyboard */,
+				F31B9ADD18A5D07B00B5D654 /* ViewController.h */,
+				F31B9ADE18A5D07B00B5D654 /* ViewController.m */,
+				F31B9AE018A5D07B00B5D654 /* Images.xcassets */,
+				F31B9ACC18A5D07B00B5D654 /* Supporting Files */,
+			);
+			path = TaxiCDMX;
+			sourceTree = "<group>";
+		};
+		F31B9ACC18A5D07B00B5D654 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9ACD18A5D07B00B5D654 /* TaxiCDMX-Info.plist */,
+				F31B9ACE18A5D07B00B5D654 /* InfoPlist.strings */,
+				F31B9AD118A5D07B00B5D654 /* main.m */,
+				F31B9AD318A5D07B00B5D654 /* TaxiCDMX-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F31B9AED18A5D07C00B5D654 /* TaxiCDMXTests */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9AF318A5D07C00B5D654 /* TaxiCDMXTests.m */,
+				F31B9AEE18A5D07C00B5D654 /* Supporting Files */,
+			);
+			path = TaxiCDMXTests;
+			sourceTree = "<group>";
+		};
+		F31B9AEE18A5D07C00B5D654 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9AEF18A5D07C00B5D654 /* TaxiCDMXTests-Info.plist */,
+				F31B9AF018A5D07C00B5D654 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F31B9AC118A5D07B00B5D654 /* TaxiCDMX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F31B9AF718A5D07C00B5D654 /* Build configuration list for PBXNativeTarget "TaxiCDMX" */;
+			buildPhases = (
+				F31B9ABE18A5D07B00B5D654 /* Sources */,
+				F31B9ABF18A5D07B00B5D654 /* Frameworks */,
+				F31B9AC018A5D07B00B5D654 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TaxiCDMX;
+			productName = TaxiCDMX;
+			productReference = F31B9AC218A5D07B00B5D654 /* TaxiCDMX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F31B9AE518A5D07C00B5D654 /* TaxiCDMXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F31B9AFA18A5D07C00B5D654 /* Build configuration list for PBXNativeTarget "TaxiCDMXTests" */;
+			buildPhases = (
+				F31B9AE218A5D07C00B5D654 /* Sources */,
+				F31B9AE318A5D07C00B5D654 /* Frameworks */,
+				F31B9AE418A5D07C00B5D654 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F31B9AEC18A5D07C00B5D654 /* PBXTargetDependency */,
+			);
+			name = TaxiCDMXTests;
+			productName = TaxiCDMXTests;
+			productReference = F31B9AE618A5D07C00B5D654 /* TaxiCDMXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F31B9ABA18A5D07B00B5D654 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Carlos Castellanos";
+				TargetAttributes = {
+					F31B9AE518A5D07C00B5D654 = {
+						TestTargetID = F31B9AC118A5D07B00B5D654;
+					};
+				};
+			};
+			buildConfigurationList = F31B9ABD18A5D07B00B5D654 /* Build configuration list for PBXProject "TaxiCDMX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F31B9AB918A5D07B00B5D654;
+			productRefGroup = F31B9AC318A5D07B00B5D654 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F31B9AC118A5D07B00B5D654 /* TaxiCDMX */,
+				F31B9AE518A5D07C00B5D654 /* TaxiCDMXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F31B9AC018A5D07B00B5D654 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3529A4918A9D57A00C44CB2 /* bien.png in Resources */,
+				F31B9ADC18A5D07B00B5D654 /* Main_iPad.storyboard in Resources */,
+				F3529A4B18A9DA0600C44CB2 /* green_taxi.png in Resources */,
+				F31B9AE118A5D07B00B5D654 /* Images.xcassets in Resources */,
+				F3529A4D18A9DA2600C44CB2 /* pollution_taxi.png in Resources */,
+				F31B9AD918A5D07B00B5D654 /* Main_iPhone.storyboard in Resources */,
+				F3529A4118A9D3EA00C44CB2 /* registrado.png in Resources */,
+				F3529A4518A9D4DD00C44CB2 /* noregistrado.png in Resources */,
+				F31B9AD018A5D07B00B5D654 /* InfoPlist.strings in Resources */,
+				F31B9B0A18A5D0EE00B5D654 /* menuButton@2x.png in Resources */,
+				F3529A4818A9D57A00C44CB2 /* mal.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F31B9AE418A5D07C00B5D654 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31B9AF218A5D07C00B5D654 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F31B9ABE18A5D07B00B5D654 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31B9ADF18A5D07B00B5D654 /* ViewController.m in Sources */,
+				F31B9B0718A5D0ED00B5D654 /* MainViewController.m in Sources */,
+				F31B9B1518A60F9F00B5D654 /* OpcionesViewController.m in Sources */,
+				F31B9AD618A5D07B00B5D654 /* AppDelegate.m in Sources */,
+				F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */,
+				F31B9B0818A5D0ED00B5D654 /* SecondViewController.m in Sources */,
+				F31B9B0518A5D0ED00B5D654 /* InitViewController.m in Sources */,
+				F31B9B0F18A5D0FF00B5D654 /* ECSlidingViewController.m in Sources */,
+				F31B9B1818A61CA000B5D654 /* ContentCeldaView.m in Sources */,
+				F31B9AD218A5D07B00B5D654 /* main.m in Sources */,
+				F31B9B0618A5D0ED00B5D654 /* MenuViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F31B9AE218A5D07C00B5D654 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31B9AF418A5D07C00B5D654 /* TaxiCDMXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F31B9AEC18A5D07C00B5D654 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F31B9AC118A5D07B00B5D654 /* TaxiCDMX */;
+			targetProxy = F31B9AEB18A5D07C00B5D654 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F31B9ACE18A5D07B00B5D654 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F31B9ACF18A5D07B00B5D654 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F31B9AD718A5D07B00B5D654 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F31B9AD818A5D07B00B5D654 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F31B9ADA18A5D07B00B5D654 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F31B9ADB18A5D07B00B5D654 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F31B9AF018A5D07C00B5D654 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F31B9AF118A5D07C00B5D654 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F31B9AF518A5D07C00B5D654 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F31B9AF618A5D07C00B5D654 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F31B9AF818A5D07C00B5D654 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TaxiCDMX/TaxiCDMX-Prefix.pch";
+				INFOPLIST_FILE = "TaxiCDMX/TaxiCDMX-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F31B9AF918A5D07C00B5D654 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TaxiCDMX/TaxiCDMX-Prefix.pch";
+				INFOPLIST_FILE = "TaxiCDMX/TaxiCDMX-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F31B9AFB18A5D07C00B5D654 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TaxiCDMX.app/TaxiCDMX";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TaxiCDMX/TaxiCDMX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TaxiCDMXTests/TaxiCDMXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F31B9AFC18A5D07C00B5D654 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TaxiCDMX.app/TaxiCDMX";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TaxiCDMX/TaxiCDMX-Prefix.pch";
+				INFOPLIST_FILE = "TaxiCDMXTests/TaxiCDMXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F31B9ABD18A5D07B00B5D654 /* Build configuration list for PBXProject "TaxiCDMX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F31B9AF518A5D07C00B5D654 /* Debug */,
+				F31B9AF618A5D07C00B5D654 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F31B9AF718A5D07C00B5D654 /* Build configuration list for PBXNativeTarget "TaxiCDMX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F31B9AF818A5D07C00B5D654 /* Debug */,
+				F31B9AF918A5D07C00B5D654 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F31B9AFA18A5D07C00B5D654 /* Build configuration list for PBXNativeTarget "TaxiCDMXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F31B9AFB18A5D07C00B5D654 /* Debug */,
+				F31B9AFC18A5D07C00B5D654 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F31B9ABA18A5D07B00B5D654 /* Project object */;
+}
