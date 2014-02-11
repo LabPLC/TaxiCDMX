@@ -14,7 +14,6 @@
 		F31B9AD218A5D07B00B5D654 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9AD118A5D07B00B5D654 /* main.m */; };
 		F31B9AD618A5D07B00B5D654 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9AD518A5D07B00B5D654 /* AppDelegate.m */; };
 		F31B9AD918A5D07B00B5D654 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31B9AD718A5D07B00B5D654 /* Main_iPhone.storyboard */; };
-		F31B9ADC18A5D07B00B5D654 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31B9ADA18A5D07B00B5D654 /* Main_iPad.storyboard */; };
 		F31B9ADF18A5D07B00B5D654 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9ADE18A5D07B00B5D654 /* ViewController.m */; };
 		F31B9AE118A5D07B00B5D654 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31B9AE018A5D07B00B5D654 /* Images.xcassets */; };
 		F31B9AE818A5D07C00B5D654 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AE718A5D07C00B5D654 /* XCTest.framework */; };
@@ -29,8 +28,6 @@
 		F31B9B0A18A5D0EE00B5D654 /* menuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F31B9B0918A5D0EE00B5D654 /* menuButton@2x.png */; };
 		F31B9B0F18A5D0FF00B5D654 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */; };
 		F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */; };
-		F31B9B1518A60F9F00B5D654 /* OpcionesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B1418A60F9F00B5D654 /* OpcionesViewController.m */; };
-		F31B9B1818A61CA000B5D654 /* ContentCeldaView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B1718A61CA000B5D654 /* ContentCeldaView.m */; };
 		F3529A4118A9D3EA00C44CB2 /* registrado.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4018A9D3EA00C44CB2 /* registrado.png */; };
 		F3529A4518A9D4DD00C44CB2 /* noregistrado.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4418A9D4DD00C44CB2 /* noregistrado.png */; };
 		F3529A4818A9D57A00C44CB2 /* mal.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4618A9D57A00C44CB2 /* mal.png */; };
@@ -61,7 +58,6 @@
 		F31B9AD418A5D07B00B5D654 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F31B9AD518A5D07B00B5D654 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F31B9AD818A5D07B00B5D654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		F31B9ADB18A5D07B00B5D654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		F31B9ADD18A5D07B00B5D654 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F31B9ADE18A5D07B00B5D654 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F31B9AE018A5D07B00B5D654 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -83,10 +79,6 @@
 		F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		F31B9B0D18A5D0FF00B5D654 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
-		F31B9B1318A60F9F00B5D654 /* OpcionesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpcionesViewController.h; sourceTree = "<group>"; };
-		F31B9B1418A60F9F00B5D654 /* OpcionesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpcionesViewController.m; sourceTree = "<group>"; };
-		F31B9B1618A61CA000B5D654 /* ContentCeldaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCeldaView.h; sourceTree = "<group>"; };
-		F31B9B1718A61CA000B5D654 /* ContentCeldaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCeldaView.m; sourceTree = "<group>"; };
 		F3529A4018A9D3EA00C44CB2 /* registrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registrado.png; sourceTree = "<group>"; };
 		F3529A4418A9D4DD00C44CB2 /* noregistrado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noregistrado.png; sourceTree = "<group>"; };
 		F3529A4618A9D57A00C44CB2 /* mal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mal.png; sourceTree = "<group>"; };
@@ -119,6 +111,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F31159E118AAB04C002E3F25 /* Iconografia */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9B0918A5D0EE00B5D654 /* menuButton@2x.png */,
+				F3529A4A18A9DA0600C44CB2 /* green_taxi.png */,
+				F3529A4018A9D3EA00C44CB2 /* registrado.png */,
+				F3529A4418A9D4DD00C44CB2 /* noregistrado.png */,
+				F3529A4618A9D57A00C44CB2 /* mal.png */,
+				F3529A4718A9D57A00C44CB2 /* bien.png */,
+			);
+			name = Iconografia;
+			sourceTree = "<group>";
+		};
+		F31159E218AAD9B0002E3F25 /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */,
+				F31B9B0D18A5D0FF00B5D654 /* UIImage+ImageWithUIView.h */,
+				F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */,
+				F31B9B0B18A5D0FF00B5D654 /* ECSlidingViewController.h */,
+			);
+			name = Slide;
+			sourceTree = "<group>";
+		};
 		F31B9AB918A5D07B00B5D654 = {
 			isa = PBXGroup;
 			children = (
@@ -153,16 +169,8 @@
 		F31B9ACB18A5D07B00B5D654 /* TaxiCDMX */ = {
 			isa = PBXGroup;
 			children = (
-				F3529A4A18A9DA0600C44CB2 /* green_taxi.png */,
-				F3529A4018A9D3EA00C44CB2 /* registrado.png */,
-				F3529A4418A9D4DD00C44CB2 /* noregistrado.png */,
-				F3529A4618A9D57A00C44CB2 /* mal.png */,
-				F3529A4718A9D57A00C44CB2 /* bien.png */,
-				F31B9B0B18A5D0FF00B5D654 /* ECSlidingViewController.h */,
-				F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */,
-				F31B9B0D18A5D0FF00B5D654 /* UIImage+ImageWithUIView.h */,
-				F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */,
-				F31B9B0918A5D0EE00B5D654 /* menuButton@2x.png */,
+				F31159E118AAB04C002E3F25 /* Iconografia */,
+				F31159E218AAD9B0002E3F25 /* Slide */,
 				F31B9AFD18A5D0ED00B5D654 /* InitViewController.h */,
 				F31B9AFE18A5D0ED00B5D654 /* InitViewController.m */,
 				F31B9AFF18A5D0ED00B5D654 /* MenuViewController.h */,
@@ -171,14 +179,9 @@
 				F31B9B0218A5D0ED00B5D654 /* MainViewController.m */,
 				F31B9B0318A5D0ED00B5D654 /* SecondViewController.h */,
 				F31B9B0418A5D0ED00B5D654 /* SecondViewController.m */,
-				F31B9B1318A60F9F00B5D654 /* OpcionesViewController.h */,
-				F31B9B1418A60F9F00B5D654 /* OpcionesViewController.m */,
 				F31B9AD418A5D07B00B5D654 /* AppDelegate.h */,
 				F31B9AD518A5D07B00B5D654 /* AppDelegate.m */,
 				F31B9AD718A5D07B00B5D654 /* Main_iPhone.storyboard */,
-				F31B9B1618A61CA000B5D654 /* ContentCeldaView.h */,
-				F31B9B1718A61CA000B5D654 /* ContentCeldaView.m */,
-				F31B9ADA18A5D07B00B5D654 /* Main_iPad.storyboard */,
 				F31B9ADD18A5D07B00B5D654 /* ViewController.h */,
 				F31B9ADE18A5D07B00B5D654 /* ViewController.m */,
 				F31B9AE018A5D07B00B5D654 /* Images.xcassets */,
@@ -293,7 +296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3529A4918A9D57A00C44CB2 /* bien.png in Resources */,
-				F31B9ADC18A5D07B00B5D654 /* Main_iPad.storyboard in Resources */,
 				F3529A4B18A9DA0600C44CB2 /* green_taxi.png in Resources */,
 				F31B9AE118A5D07B00B5D654 /* Images.xcassets in Resources */,
 				F3529A4D18A9DA2600C44CB2 /* pollution_taxi.png in Resources */,
@@ -323,13 +325,11 @@
 			files = (
 				F31B9ADF18A5D07B00B5D654 /* ViewController.m in Sources */,
 				F31B9B0718A5D0ED00B5D654 /* MainViewController.m in Sources */,
-				F31B9B1518A60F9F00B5D654 /* OpcionesViewController.m in Sources */,
 				F31B9AD618A5D07B00B5D654 /* AppDelegate.m in Sources */,
 				F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */,
 				F31B9B0818A5D0ED00B5D654 /* SecondViewController.m in Sources */,
 				F31B9B0518A5D0ED00B5D654 /* InitViewController.m in Sources */,
 				F31B9B0F18A5D0FF00B5D654 /* ECSlidingViewController.m in Sources */,
-				F31B9B1818A61CA000B5D654 /* ContentCeldaView.m in Sources */,
 				F31B9AD218A5D07B00B5D654 /* main.m in Sources */,
 				F31B9B0618A5D0ED00B5D654 /* MenuViewController.m in Sources */,
 			);
@@ -368,14 +368,6 @@
 				F31B9AD818A5D07B00B5D654 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		F31B9ADA18A5D07B00B5D654 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F31B9ADB18A5D07B00B5D654 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		F31B9AF018A5D07C00B5D654 /* InfoPlist.strings */ = {

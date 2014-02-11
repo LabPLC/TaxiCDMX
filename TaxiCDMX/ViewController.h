@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #define NUMBERS_ONLY @"1234567890"
-#define letras @"aAbB"
 #define CHARACTER_LIMIT 5
 @interface ViewController : UIViewController
 {

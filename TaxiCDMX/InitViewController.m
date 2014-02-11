@@ -1,9 +1,10 @@
 //
 //  InitViewController.m
-//  SlideMenu
+//  TaxiCDMX
 //
-//  Created by Kyle Begeman on 1/13/13.
-//  Copyright (c) 2013 Indee Box LLC. All rights reserved.
+// Carlos Castellanos
+// rockarlos@me.com
+// @rockarloz
 //
 
 #import "InitViewController.h"

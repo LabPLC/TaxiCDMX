@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad
 {
-    
+    _letra.tag=0;
+    _placa.tag=1,
     
     self.view.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1]; /*#927748*/
         delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -62,16 +63,20 @@
    }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS_ONLY] invertedSet];
-    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
-    return (([string isEqualToString:filtered])&&(newLength <= CHARACTER_LIMIT));
-}
-- (BOOL)textField2:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:letras] invertedSet];
-    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
-    return (([string isEqualToString:filtered])&&(newLength <= 2));
+    if (textField.tag==1) {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS_ONLY] invertedSet];
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        return (([string isEqualToString:filtered])&&(newLength <= CHARACTER_LIMIT));
+    }
+    else{
+    
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"abABmM"] invertedSet];
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        return (([string isEqualToString:filtered])&&(newLength <= 1));
+    }
+
 }
 
 

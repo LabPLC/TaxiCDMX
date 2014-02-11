@@ -1,8 +1,8 @@
 //
 //  MainViewController.m
-//  SlideMenu
+//  TaxiCDMX
 //
-//  Carlos Castellanos
+// Carlos Castellanos
 // rockarlos@me.com
 // @rockarloz
 //
@@ -32,8 +32,8 @@
 - (void)viewDidLoad
 {
     
-_top.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
-_bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
+    _top.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
+    _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
     
     self.view.backgroundColor=[UIColor colorWithRed:0.937 green:0.204 blue:0.082 alpha:1]; /*#ef3415*/
     delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -61,8 +61,6 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
     
     [self.view addSubview:self.menuBtn];
     
-   
-    
     loading=[[UIView alloc]initWithFrame:CGRectMake(10, 10, 300, (self.view.frame.size.height -20))];
     loading.backgroundColor=[UIColor blackColor];
     loading.alpha=0.8;
@@ -73,23 +71,13 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
     [loading addSubview:spinner];
     [self.view addSubview:loading];
     [self llamada_asincrona];
-    
-    
-    
-     /*
-    
-    */
-   
-    
-
-}
+   }
 -(void)cargar_contenido{
 
     //inicia pagecontroller
     NSLog(@"ya debio poner el contenido inicio");
     paginas=[[NSArray alloc]initWithObjects:@"1",@"2",@"3", nil];
     for (int i = 0; i < [paginas count]; i++) {
-        
         if (i==0) {
            
             CGRect frame;
@@ -108,7 +96,6 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
             UILabel *registro=[[UILabel alloc]initWithFrame:frame2];
             [registro setFont:[UIFont systemFontOfSize:12]];
             
-            
             if (registrado==true) {
                 imageView.image = [UIImage imageNamed:@"registrado.png"];
                 registro.text=@"Taxi Registrado en SETRAVI";
@@ -121,6 +108,7 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
             
             [self.scrollView addSubview:registro];
             [self.scrollView addSubview:imageView];
+            NSLog(@"Ya puso pagina 1");
         }
         else if (i==1){
             CGRect frame;
@@ -180,16 +168,10 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
             }
             
            
-            /*
-            if (registrado==true) {
-                imageView.image = [UIImage imageNamed:@"green_taxi.png"];
-                   registro.text=[[delegate.verificaciones objectAtIndex:0] objectForKey:@"vigencia"];            }
-            else{
-                imageView.image = [UIImage imageNamed:@"pollution_taxi.png"];
-                registro.text=[[delegate.verificaciones objectAtIndex:0] objectForKey:@"vigencia"];
-            }*/
+        
             [self.scrollView addSubview:registro];
             [self.scrollView addSubview:imageView];
+             NSLog(@"Ya puso pagina 2");
             
         }
         else{
@@ -215,8 +197,10 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
             }
             [self.scrollView addSubview:infracciones];
             [self.scrollView addSubview:pagina];
+             NSLog(@"Ya puso pagina 3");
         }
     }
+    
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [paginas count], scrollView.frame.size.height);
     ////fin del pagecontroller
     [spinner stopAnimating];
@@ -239,15 +223,17 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
 -(void)detalles{
 
     
-    NSString *urlString = [NSString stringWithFormat:@"http://datos.labplc.mx/movilidad/vehiculos/%@.json",delegate.placa];
-    dispatch_async(kBgQueue, ^{
+        NSString *urlString = [NSString stringWithFormat:@"http://datos.labplc.mx/movilidad/vehiculos/%@.json",delegate.placa];
+        dispatch_async(dispatch_get_main_queue(), ^{
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
         NSString *dato = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
         if ([dato isEqualToString:@"null"]) {
             
             NSLog(@"no encontramos informacion sobre este taxi");
             
-        }else{
+        }
+        else{
             NSMutableString * respuesta = [NSMutableString stringWithString: dato];
             NSData *data_respuesta = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
             
@@ -264,65 +250,17 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
              delegate.infracciones=[infracciones objectAtIndex:i];
                           }///////////////////////*/
              
-             delegate.infracciones=[consulta objectForKey:@"infracciones"];
+            delegate.infracciones=[consulta objectForKey:@"infracciones"];
              
-             delegate.tenencias=[[NSMutableDictionary alloc]initWithDictionary:[consulta objectForKey:@"tenencias"] copyItems:true];
-             delegate.verificaciones=[consulta objectForKey:@"verificaciones"];
-             [self cargar_contenido];
-             NSLog(@"el taxi debe los años %@",[delegate.tenencias objectForKey:@"adeudos"]);
+            delegate.tenencias=[[NSMutableDictionary alloc]initWithDictionary:[consulta objectForKey:@"tenencias"] copyItems:true];
+            delegate.verificaciones=[consulta objectForKey:@"verificaciones"];
+            [self cargar_contenido];
+            NSLog(@"el taxi debe los años %@",[delegate.tenencias objectForKey:@"adeudos"]);
              
              }
 
     });
-    
-   /* NSURL *url = [[NSURL alloc] initWithString:urlString];
-    // Se crea la petición
-    NSError *error = nil;
-    NSURLResponse *response = nil;
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
-    
-    // Se realiza la petición
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSString *dato = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if ([dato isEqualToString:@"null"]) {
-        
-        NSLog(@"no encontramos informacion sobre este taxi");
-        
-    }else{
-        NSMutableString * respuesta = [NSMutableString stringWithString: dato];
-        NSData *data_respuesta = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
-        
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data_respuesta options:NSJSONReadingAllowFragments error:nil];
-        
-        NSMutableDictionary *consulta=[[NSMutableDictionary alloc]init];
-        consulta = [jsonObject objectForKey:@"consulta"];
-        
-      /*  NSArray *infracciones=[consulta objectForKey:@"infracciones"];
-      //  NSMutableDictionary *lugar=[[NSMutableDictionary alloc]init];
-        for(int i=0;i<[delegate.infracciones count];i++) {
-            NSLog(@"%i",i);
-            
-            delegate.infracciones=[infracciones objectAtIndex:i];
-            
-            
-            
-            
-            
-        }////////////////////////
-
-        delegate.infracciones=[consulta objectForKey:@"infracciones"];
-
-       delegate.tenencias=[[NSMutableDictionary alloc]initWithDictionary:[consulta objectForKey:@"tenencias"] copyItems:true];
-        delegate.verificaciones=[consulta objectForKey:@"verificaciones"];
-       [_btn_infracciones setTitle:[NSString stringWithFormat:@"%i",[delegate.infracciones count]] forState:UIControlStateNormal];
-        [_btn_verificaciones setTitle:[NSString stringWithFormat:@"%i",[delegate.verificaciones count]] forState:UIControlStateNormal];
-        [_btn_tenencias setTitle:[NSString stringWithFormat:@"%@",[delegate.tenencias objectForKey:@"adeudos"]] forState:UIControlStateNormal];
-        
-        NSLog(@"el taxi debe los años %@",[delegate.tenencias objectForKey:@"adeudos"]);
-        
-           }*/
-}
+    }
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
@@ -356,7 +294,7 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
     //http://datos.labplc.mx/movilidad/taxis/b01536.json
     NSString *urlString = [NSString stringWithFormat:@"http://datos.labplc.mx/movilidad/taxis/%@.json",delegate.placa];
     //
-    dispatch_async(kBgQueue, ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
         
         if ([data length] >0  )
@@ -389,9 +327,12 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
                 }
                 NSLog(@"no pirata");
                 registrado=true;
+                _marca.text=[lugar objectForKey:@"marca"];
+                _submarca.text=[lugar objectForKey:@"submarca"];
+                _modelo.text=[lugar objectForKey:@"anio"];
                 //_marca.text=[lugar objectForKey:@"marca"];
-               [self detalles];
-               
+                [self detalles];
+                
             }
         }
         else{
@@ -401,72 +342,7 @@ _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha
         }
         
         
-        
-
-                /*dispatch_async(dispatch_get_main_queue(), ^{
-                    myCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                    if (updateCell)
-                        updateCell.poster.image = image;
-                });*/
-            
-        
     });
-    //
-    /*
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
-    NSOperationQueue *queue =[[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     
-     {
-         
-         if ([data length] >0  && error == nil)
-         {
-             
-             NSString *dato=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-             if ([dato isEqualToString:@"null"]) {
-                 registrado=false;
-                 _resultado.text=@"pirata";
-                 NSLog(@"pirata");
-                    [self cargar_contenido];
-                 
-             }else{
-                 NSMutableString * miCadena = [NSMutableString stringWithString: dato];
-                 NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
-                 NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
-                 
-                 NSMutableDictionary *consulta=[[NSMutableDictionary alloc]init];
-                 consulta = [jsonObject objectForKey:@"Taxi"];
-                 
-                 NSArray *lugares=[consulta objectForKey:@"concesion"];
-                 NSMutableDictionary *lugar=[[NSMutableDictionary alloc]init];
-                 for(int i=0;i<[lugares count];i++) {
-                     NSLog(@"%i",i);
-                     
-                     lugar=[lugares objectAtIndex:i];
-                     
-                 }
-                 NSLog(@"no pirata");
-                 registrado=true;
-                 _resultado.text=@"Oficial";
-                 _marca.text=[lugar objectForKey:@"marca"];
-                 _submarca.text=[lugar objectForKey:@"submarca"];
-                 _modelo.text=[lugar objectForKey:@"anio"];
-                 NSLog(@"marca:%@",[lugar objectForKey:@"marca"] );
-                 [self detalles];
-                 [self cargar_contenido];
-             }
-         }
-         else{
-             // respuesta = nil;
-             NSLog(@"Contenido vacio");
-             
-         }
-         
-         
-         
-         
-         //Termina el método asíncrono
-     }];*/
     
 }
 -(void)llamada_sincrona{
