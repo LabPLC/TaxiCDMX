@@ -13,6 +13,9 @@
 @interface ViewController : UIViewController
 {
     AppDelegate *delegate;
+    UIView *loading;
+    UIActivityIndicatorView *spinner;
+    NSURLConnection *postConnection;
 }
 @property (weak, nonatomic) IBOutlet UITextField *placa;
 @property (weak, nonatomic) IBOutlet UITextField *letra;

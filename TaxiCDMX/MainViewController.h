@@ -11,18 +11,17 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "ViewController.h"
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 
 @interface MainViewController : UIViewController  <UIScrollViewDelegate>
 {
     AppDelegate *delegate;
-    NSURLConnection *postConnection;
+    //NSURLConnection *postConnection;
     NSArray *paginas;
-    BOOL registrado;
-    BOOL verificado;
-    NSString *vigencia_verificacion;
-    UIView *loading;
-    UIActivityIndicatorView *spinner;
+   // BOOL registrado;
+   // BOOL verificado;
+  //  NSString *vigencia_verificacion;
+
 }
 @property (weak, nonatomic) IBOutlet UIView *top;
 @property (weak, nonatomic) IBOutlet UIView *bottom;

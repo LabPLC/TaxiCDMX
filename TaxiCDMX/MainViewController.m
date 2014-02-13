@@ -31,12 +31,18 @@
 
 - (void)viewDidLoad
 {
+    delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (delegate.marca!=nil && delegate.submarca!=nil && delegate.anio!=nil) {
+        _marca.text=delegate.marca;
+        _submarca.text=delegate.submarca;
+        _modelo.text=delegate.anio;
+    }
     
     _top.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
     _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
     
     self.view.backgroundColor=[UIColor colorWithRed:0.937 green:0.204 blue:0.082 alpha:1]; /*#ef3415*/
-    delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [super viewDidLoad];
 	
     // Do any additional setup after loading the view.
@@ -61,21 +67,15 @@
     
     [self.view addSubview:self.menuBtn];
     
-    loading=[[UIView alloc]initWithFrame:CGRectMake(10, 10, 300, (self.view.frame.size.height -20))];
-    loading.backgroundColor=[UIColor blackColor];
-    loading.alpha=0.8;
-    
-    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spinner setCenter:CGPointMake(loading.frame.size.width/2.0, loading.frame.size.height/2.0)]; // I do this because I'm in landscape mode
-    [spinner startAnimating];
-    [loading addSubview:spinner];
-    [self.view addSubview:loading];
-    [self llamada_asincrona];
+   
+    //[self llamada_asincrona];
+    [self cargar_contenido];
    }
+
 -(void)cargar_contenido{
 
     //inicia pagecontroller
-    NSLog(@"ya debio poner el contenido inicio");
+ 
     paginas=[[NSArray alloc]initWithObjects:@"1",@"2",@"3", nil];
     for (int i = 0; i < [paginas count]; i++) {
         if (i==0) {
@@ -96,7 +96,7 @@
             UILabel *registro=[[UILabel alloc]initWithFrame:frame2];
             [registro setFont:[UIFont systemFontOfSize:12]];
             
-            if (registrado==true) {
+            if ([delegate.registrado isEqualToString:@"true"]) {
                 imageView.image = [UIImage imageNamed:@"registrado.png"];
                 registro.text=@"Taxi Registrado en SETRAVI";
             }
@@ -108,8 +108,7 @@
             
             [self.scrollView addSubview:registro];
             [self.scrollView addSubview:imageView];
-            NSLog(@"Ya puso pagina 1");
-        }
+                   }
         else if (i==1){
             CGRect frame;
             frame.origin.x = (self.scrollView.frame.size.width * i)+38;
@@ -166,12 +165,9 @@
                 registro.text=[[delegate.verificaciones objectAtIndex:0] objectForKey:@"vigencia"];
    
             }
-            
-           
-        
             [self.scrollView addSubview:registro];
             [self.scrollView addSubview:imageView];
-             NSLog(@"Ya puso pagina 2");
+        
             
         }
         else{
@@ -186,7 +182,12 @@
             frame2.size = self.scrollView.frame.size;
             UILabel *pagina=[[UILabel alloc] init];
             UILabel *infracciones=[[UILabel alloc] init];
-            infracciones.text=[NSString stringWithFormat:@"%i",[delegate.infracciones count]];
+            if([delegate.infracciones count]==0){
+              infracciones.text=[NSString stringWithFormat:@"Nunca ha sido infraccionado"];
+            }
+            else{
+                infracciones.text=[NSString stringWithFormat:@"%i",[delegate.infracciones count]];
+            }
             infracciones.frame=frame2;
             pagina.frame=frame;
             if ([delegate.tenencias objectForKey:@"adeudos"]==NULL) {
@@ -197,15 +198,11 @@
             }
             [self.scrollView addSubview:infracciones];
             [self.scrollView addSubview:pagina];
-             NSLog(@"Ya puso pagina 3");
+            
         }
     }
     
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [paginas count], scrollView.frame.size.height);
-    ////fin del pagecontroller
-    [spinner stopAnimating];
-    [loading removeFromSuperview];
-     NSLog(@"ya debio poner el contenido fin");
 }
 -(IBAction)volver:(id)sender
 {
@@ -220,65 +217,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)detalles{
-
-    
-        NSString *urlString = [NSString stringWithFormat:@"http://datos.labplc.mx/movilidad/vehiculos/%@.json",delegate.placa];
-        dispatch_async(dispatch_get_main_queue(), ^{
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-        NSString *dato = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            
-        if ([dato isEqualToString:@"null"]) {
-            
-            NSLog(@"no encontramos informacion sobre este taxi");
-            
-        }
-        else{
-            NSMutableString * respuesta = [NSMutableString stringWithString: dato];
-            NSData *data_respuesta = [respuesta dataUsingEncoding:NSUTF8StringEncoding];
-            
-            NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data_respuesta options:NSJSONReadingAllowFragments error:nil];
-            
-            NSMutableDictionary *consulta=[[NSMutableDictionary alloc]init];
-            consulta = [jsonObject objectForKey:@"consulta"];
-            
-            /*  NSArray *infracciones=[consulta objectForKey:@"infracciones"];
-             //  NSMutableDictionary *lugar=[[NSMutableDictionary alloc]init];
-             for(int i=0;i<[delegate.infracciones count];i++) {
-             NSLog(@"%i",i);
-             
-             delegate.infracciones=[infracciones objectAtIndex:i];
-                          }///////////////////////*/
-             
-            delegate.infracciones=[consulta objectForKey:@"infracciones"];
-             
-            delegate.tenencias=[[NSMutableDictionary alloc]initWithDictionary:[consulta objectForKey:@"tenencias"] copyItems:true];
-            delegate.verificaciones=[consulta objectForKey:@"verificaciones"];
-            [self cargar_contenido];
-            NSLog(@"el taxi debe los años %@",[delegate.tenencias objectForKey:@"adeudos"]);
-             
-             }
-
-    });
-    }
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
-}
--(void)reportar_taxi{
-
-
-    
-            NSMutableString *postString = [NSMutableString stringWithString:@"http://lionteamsoft.com.mx/taxi.php"];
-            [postString appendString:[NSString stringWithFormat:@"?placa=%@", delegate.placa ]];
-    
-            [postString setString:[postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:postString]];
-            [request setHTTPMethod:@"POST"];
-            postConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
-    
-    
-
 }
 
 #pragma mark - UIScrollView Delegate
@@ -288,113 +229,6 @@
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
-}
-
--(void)llamada_asincrona{
-    //http://datos.labplc.mx/movilidad/taxis/b01536.json
-    NSString *urlString = [NSString stringWithFormat:@"http://datos.labplc.mx/movilidad/taxis/%@.json",delegate.placa];
-    //
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-        
-        if ([data length] >0  )
-        {
-            
-            NSString *dato=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            if ([dato isEqualToString:@"null"]) {
-                registrado=false;
-                _resultado.text=@"pirata";
-                [self reportar_taxi];
-                NSLog(@"pirata");
-                [self detalles];
-                
-                
-            }else{
-                NSMutableString * miCadena = [NSMutableString stringWithString: dato];
-                NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
-                
-                NSMutableDictionary *consulta=[[NSMutableDictionary alloc]init];
-                consulta = [jsonObject objectForKey:@"Taxi"];
-                
-                NSArray *lugares=[consulta objectForKey:@"concesion"];
-                NSMutableDictionary *lugar=[[NSMutableDictionary alloc]init];
-                for(int i=0;i<[lugares count];i++) {
-                    NSLog(@"%i",i);
-                    
-                    lugar=[lugares objectAtIndex:i];
-                    
-                }
-                NSLog(@"no pirata");
-                registrado=true;
-                _marca.text=[lugar objectForKey:@"marca"];
-                _submarca.text=[lugar objectForKey:@"submarca"];
-                _modelo.text=[lugar objectForKey:@"anio"];
-                //_marca.text=[lugar objectForKey:@"marca"];
-                [self detalles];
-                
-            }
-        }
-        else{
-            // respuesta = nil;
-            NSLog(@"Contenido vacio");
-            
-        }
-        
-        
-    });
-    
-}
--(void)llamada_sincrona{
-    //inicia sincrono
-    NSString *urlString = [NSString stringWithFormat:@"http://datos.labplc.mx/movilidad/taxis/%@.json",delegate.placa];
-    
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
-    // Se crea la petición
-    NSError *error = nil;
-    NSURLResponse *response = nil;
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
-    
-    // Se realiza la petición
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSString *dato = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if ([dato isEqualToString:@"null"]) {
-        
-        
-        registrado=false;
-        _resultado.text=@"pirata";
-        [self reportar_taxi];
-        
-    }else{
-        NSMutableString * miCadena = [NSMutableString stringWithString: dato];
-        NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
-        
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
-        
-        NSMutableDictionary *consulta=[[NSMutableDictionary alloc]init];
-        consulta = [jsonObject objectForKey:@"Taxi"];
-        
-        NSArray *lugares=[consulta objectForKey:@"concesion"];
-        NSMutableDictionary *lugar=[[NSMutableDictionary alloc]init];
-        for(int i=0;i<[lugares count];i++) {
-            NSLog(@"%i",i);
-            
-            lugar=[lugares objectAtIndex:i];
-            
-        }
-        registrado =true;
-        NSLog(@"no pirata");
-       
-        _resultado.text=@"Oficial";
-        _marca.text=[lugar objectForKey:@"marca"];
-        _submarca.text=[lugar objectForKey:@"submarca"];
-        _modelo.text=[lugar objectForKey:@"anio"];
-        NSLog(@"marca:%@",[lugar objectForKey:@"marca"] );
-    }
-    [self detalles];
-    //termina sincrono
-
 }
 
 @end

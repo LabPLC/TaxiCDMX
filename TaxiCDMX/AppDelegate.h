@@ -12,7 +12,12 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *placa;
+@property (strong, nonatomic) NSString *marca;
+@property (strong, nonatomic) NSString *submarca;
+@property (strong, nonatomic) NSString *anio;
 @property (strong, nonatomic) NSArray * infracciones;
 @property (strong, nonatomic) NSMutableDictionary * tenencias;
 @property (strong, nonatomic) NSArray * verificaciones;
+@property (retain, nonatomic) NSString *registrado;
+@property (strong, nonatomic) NSString *verificado;
 @end

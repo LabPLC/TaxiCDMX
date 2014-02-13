@@ -30,7 +30,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Infracciones"];
+    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Taxi"];
     
 }
 - (void)didReceiveMemoryWarning
