@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30B0F3D18AD557F00DAB3BB /* ConductorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B0F3C18AD557F00DAB3BB /* ConductorViewController.m */; };
 		F31B9AC618A5D07B00B5D654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC518A5D07B00B5D654 /* Foundation.framework */; };
 		F31B9AC818A5D07B00B5D654 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC718A5D07B00B5D654 /* CoreGraphics.framework */; };
 		F31B9ACA18A5D07B00B5D654 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31B9AC918A5D07B00B5D654 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F30B0F3B18AD557F00DAB3BB /* ConductorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConductorViewController.h; sourceTree = "<group>"; };
+		F30B0F3C18AD557F00DAB3BB /* ConductorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConductorViewController.m; sourceTree = "<group>"; };
 		F31B9AC218A5D07B00B5D654 /* TaxiCDMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxiCDMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31B9AC518A5D07B00B5D654 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F31B9AC718A5D07B00B5D654 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -179,6 +182,8 @@
 				F31B9B0218A5D0ED00B5D654 /* MainViewController.m */,
 				F31B9B0318A5D0ED00B5D654 /* SecondViewController.h */,
 				F31B9B0418A5D0ED00B5D654 /* SecondViewController.m */,
+				F30B0F3B18AD557F00DAB3BB /* ConductorViewController.h */,
+				F30B0F3C18AD557F00DAB3BB /* ConductorViewController.m */,
 				F31B9AD418A5D07B00B5D654 /* AppDelegate.h */,
 				F31B9AD518A5D07B00B5D654 /* AppDelegate.m */,
 				F31B9AD718A5D07B00B5D654 /* Main_iPhone.storyboard */,
@@ -325,6 +330,7 @@
 			files = (
 				F31B9ADF18A5D07B00B5D654 /* ViewController.m in Sources */,
 				F31B9B0718A5D0ED00B5D654 /* MainViewController.m in Sources */,
+				F30B0F3D18AD557F00DAB3BB /* ConductorViewController.m in Sources */,
 				F31B9AD618A5D07B00B5D654 /* AppDelegate.m in Sources */,
 				F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */,
 				F31B9B0818A5D0ED00B5D654 /* SecondViewController.m in Sources */,
@@ -456,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TaxiCDMX/TaxiCDMX-Prefix.pch";
 				INFOPLIST_FILE = "TaxiCDMX/TaxiCDMX-Info.plist";
@@ -469,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TaxiCDMX/TaxiCDMX-Prefix.pch";
 				INFOPLIST_FILE = "TaxiCDMX/TaxiCDMX-Info.plist";
