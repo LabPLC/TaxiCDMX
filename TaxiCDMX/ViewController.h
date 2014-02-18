@@ -19,6 +19,7 @@
 }
 @property (weak, nonatomic) IBOutlet UITextField *placa;
 @property (weak, nonatomic) IBOutlet UITextField *letra;
+@property (weak, nonatomic) IBOutlet UIView *View_aux;
 @property (weak, nonatomic) IBOutlet UIButton *verificar;
 -(IBAction)verificar:(id)sender;
 @end

@@ -19,7 +19,8 @@
     _letra.tag=0;
     _placa.tag=1;
     
-    self.view.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1]; /*#927748*/
+    self.view.backgroundColor=[UIColor colorWithRed:0.557 green:0.031 blue:0.051 alpha:1]; /*#8e080d*/
+    _View_aux.backgroundColor=[UIColor colorWithRed:0.784 green:0.718 blue:0.588 alpha:1]; /*#c8b796*/
         delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [super viewDidLoad];
     
@@ -41,7 +42,7 @@
     
     if ([_letra.text length]== 1 && [_placa.text length]==5) {
         
-    if ([_letra.text isEqualToString:@"a"] || [_letra.text isEqualToString:@"A"] || [_letra.text isEqualToString:@"B"] || [_letra.text isEqualToString:@"b"] ) {
+    if ([_letra.text isEqualToString:@"a"] || [_letra.text isEqualToString:@"A"] || [_letra.text isEqualToString:@"B"] || [_letra.text isEqualToString:@"b"] || [_letra.text isEqualToString:@"M"] || [_letra.text isEqualToString:@"m"] ) {
         NSString *placas= [NSString stringWithFormat:@"%@%@",_letra.text,_placa.text];
         delegate.placa=placas;
         loading=[[UIView alloc]initWithFrame:CGRectMake(10, 10, 300, (self.view.frame.size.height -20))];

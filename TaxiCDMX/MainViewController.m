@@ -38,10 +38,7 @@
         _modelo.text=delegate.anio;
     }
     
-    _top.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
-    _bottom.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1];
-    
-    self.view.backgroundColor=[UIColor colorWithRed:0.937 green:0.204 blue:0.082 alpha:1]; /*#ef3415*/
+   
     
     [super viewDidLoad];
 	
@@ -81,10 +78,10 @@
         if (i==0) {
            
             CGRect frame;
-            frame.origin.x = (self.scrollView.frame.size.width * i)+38;
-            frame.origin.y = 0;
-            frame.size.height =140;
-            frame.size.width=162;//self.scrollView.frame.size;
+            frame.origin.x = (self.scrollView.frame.size.width * i)+30;
+            frame.origin.y = 15;
+            frame.size.height =220;
+            frame.size.width=220;//self.scrollView.frame.size;
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
             //label
             
@@ -97,12 +94,14 @@
             [registro setFont:[UIFont systemFontOfSize:12]];
             
             if ([delegate.registrado isEqualToString:@"true"]) {
-                imageView.image = [UIImage imageNamed:@"registrado.png"];
-                registro.text=@"Taxi Registrado en SETRAVI";
+                imageView.image = [UIImage imageNamed:@"Taxi_Si.png"];
+                registro.text=@"Esta placa SI se encuentra registrada como taxi con SETRAVI";
+               // registro.lineBreakMode = UILineBreakModeWordWrap;
+                registro.numberOfLines = 2;
             }
             else{
-                imageView.image = [UIImage imageNamed:@"noregistrado.png"];
-                registro.text=@"Taxi No Registrado en SETRAVI";
+                imageView.image = [UIImage imageNamed:@"Taxi_No.png"];
+                registro.text=@"Esta placa NO se encuentra registrada como taxi con SETRAVI";
             }
             [registro adjustsFontSizeToFitWidth];
             
