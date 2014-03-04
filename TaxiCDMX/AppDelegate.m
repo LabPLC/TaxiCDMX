@@ -12,7 +12,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenHeight = screenSize.height;
+    _alto= [NSString stringWithFormat:@"%f",screenHeight];
+    NSLog(@"%@",_alto);
 
     // Override point for customization after application launch.
     return YES;

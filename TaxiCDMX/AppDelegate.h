@@ -20,4 +20,5 @@
 @property (strong, nonatomic) NSMutableArray * verificaciones;
 @property (retain, nonatomic) NSString *registrado;
 @property (strong, nonatomic) NSString *verificado;
+@property (strong, nonatomic) NSString *alto;
 @end

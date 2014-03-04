@@ -23,6 +23,10 @@
     }
     return self;
 }
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)viewDidLoad
 {
@@ -30,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Taxi"];
+    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Taxi1"];
     
 }
 - (void)didReceiveMemoryWarning

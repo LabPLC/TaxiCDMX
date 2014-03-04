@@ -19,6 +19,7 @@
 {
     return UIStatusBarStyleLightContent;
 }
+
 -(IBAction)escanear:(id)sender
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -38,7 +39,7 @@
     }
     Tesseract* tesseract = [[Tesseract alloc]  initWithDataPath:@"tessdata" language:@"eng"];
     [tesseract setVariableValue:@"-aAbBcC0123456789" forKey:@"tessedit_char_whitelist"];
-    [tesseract setImage:[UIImage imageNamed:@"otros.png"]];//_imagen.image];//[
+    [tesseract setImage:_imagen.image];//[UIImage imageNamed:@"otros.png"]];//_imagen.image];//[
     [tesseract recognize];
     //_numeros.text=[tesseract recognizedText];
     NSLog(@"%@", [tesseract recognizedText]);
@@ -47,29 +48,46 @@
     if ([[listItems objectAtIndex:0]isEqualToString:@"a"] || [[listItems objectAtIndex:0]isEqualToString:@"A"] || [[listItems objectAtIndex:0]isEqualToString:@"m"] || [[listItems objectAtIndex:0]isEqualToString:@"B"] || [[listItems objectAtIndex:0]isEqualToString:@"M"] || [[listItems objectAtIndex:0]isEqualToString:@"b"] ) {
         _letra.text=[listItems objectAtIndex:0];
     }
-    _letra.text=[listItems objectAtIndex:0];
-    NSString *tmp=[NSString stringWithFormat:@"%@%@",[listItems objectAtIndex:1],[listItems objectAtIndex:2]];
-    _placa.text = [tmp stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    
+    if ([[listItems objectAtIndex:0]isEqualToString:@"a"] || [[listItems objectAtIndex:0]isEqualToString:@"A"] || [[listItems objectAtIndex:0]isEqualToString:@"b"]|| [[listItems objectAtIndex:0]isEqualToString:@"B"]|| [[listItems objectAtIndex:0]isEqualToString:@"m"]|| [[listItems objectAtIndex:0]isEqualToString:@"M"]) {
+        
+        _letra.text=[listItems objectAtIndex:0];
+        NSString *tmp=[NSString stringWithFormat:@"%@%@",[listItems objectAtIndex:1],[listItems objectAtIndex:2]];
+        _placa.text = [tmp stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+    }
+  
+    else{
+        UIAlertView *alerta=[[UIAlertView alloc] initWithTitle:@"Número de placa no identificado" message:@"Intenta tomar la foto de nueva" delegate:nil cancelButtonTitle:@"aceptar" otherButtonTitles:nil, nil];
+        [alerta show];
+    }
 }
 
 - (void)viewDidLoad
 {
-    _imagen.hidden=TRUE;
-    [self escanear:nil];
+   [_letra becomeFirstResponder];
+    //_imagen.hidden=TRUE;
+   // [self escanear:nil];
     _letra.tag=0;
     _placa.tag=1;
     
     self.view.backgroundColor=[UIColor colorWithRed:0.557 green:0.031 blue:0.051 alpha:1]; /*#8e080d*/
     _View_aux.backgroundColor=[UIColor colorWithRed:0.784 green:0.718 blue:0.588 alpha:1]; /*#c8b796*/
     delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [super viewDidLoad];
     
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self     action:@selector(tapped)];
     tapScroll.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapScroll];
-    
     _letra_taxis= @[@"A", @"B",@"M"];
+    
+    if ( [delegate.alto intValue] < 568) {
+      
+            NSLog(@"iphone 3.5");
+    }
+    else{
+      NSLog(@"iphone 4");
+    }
 
 }
 
@@ -87,7 +105,7 @@
     if ([_letra.text isEqualToString:@"a"] || [_letra.text isEqualToString:@"A"] || [_letra.text isEqualToString:@"B"] || [_letra.text isEqualToString:@"b"] || [_letra.text isEqualToString:@"M"] || [_letra.text isEqualToString:@"m"] ) {
         NSString *placas= [NSString stringWithFormat:@"%@%@",_letra.text,_placa.text];
         delegate.placa=placas;
-        loading=[[UIView alloc]initWithFrame:CGRectMake(10, 10, 300, (self.view.frame.size.height -20))];
+        loading=[[UIView alloc]initWithFrame:CGRectMake(10, 20, 300, 250)];
         loading.backgroundColor=[UIColor blackColor];
         loading.alpha=0.8;
         
@@ -101,12 +119,12 @@
       
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Por favor introduce una placa valida" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Por favor introduce un número de placa valida" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
         [alert show];
     }
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Por favor introduce una placa valida" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Por favor introduce un número de placa valida" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
         [alert show];
     }
     
@@ -125,7 +143,9 @@
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
         NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"abABmM"] invertedSet];
         NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        
         return (([string isEqualToString:filtered])&&(newLength <= 1));
+        [_placa becomeFirstResponder];
     }
 
 }
@@ -133,7 +153,7 @@
 
 - (void) tapped
 {
-    [self.view endEditing:YES];
+   // [self.view endEditing:YES];
 }
 
 
@@ -207,7 +227,7 @@
         
         if ([dato isEqualToString:@"null"]) {
             
-            NSLog(@"no encontramos informacion sobre este taxi");
+            NSLog(@"No encontramos información sobre este taxi");
             
         }
         else{
@@ -289,6 +309,8 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imagen.image = chosenImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
+     [self escanear:nil];
+    [_letra becomeFirstResponder];
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

@@ -18,6 +18,7 @@
     UIActivityIndicatorView *spinner;
     NSURLConnection *postConnection;
 }
+@property (weak, nonatomic) IBOutlet UIButton *tomar_foto;
 @property (weak, nonatomic) IBOutlet UIImageView *imagen;
 @property (weak, nonatomic) IBOutlet UITextField *placa;
 @property (weak, nonatomic) IBOutlet UITextField *letra;
