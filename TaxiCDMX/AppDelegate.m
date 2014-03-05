@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,7 +17,14 @@
     CGFloat screenHeight = screenSize.height;
     _alto= [NSString stringWithFormat:@"%f",screenHeight];
     NSLog(@"%@",_alto);
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone"
+                                                             bundle: nil];
+    //[self.storyboard instantiateViewControllerWithIdentifier:@"Taxi1"];
 
+    ViewController *controller = (ViewController*)[mainStoryboard
+                                                       instantiateViewControllerWithIdentifier: @"inicio1"];
+self.window.rootViewController = controller;
     // Override point for customization after application launch.
     return YES;
 }
