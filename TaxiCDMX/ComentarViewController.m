@@ -7,13 +7,16 @@
 //
 
 #import "ComentarViewController.h"
-
+#import "InitViewController.h"
 @interface ComentarViewController ()
 
 @end
 
 @implementation ComentarViewController
-
+{
+    NSMutableArray *tableData;
+    BOOL flag;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,83 +28,103 @@
 
 - (void)viewDidLoad
 {
+    flag=FALSE;
+    UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self     action:@selector(tapped)];
+    tapScroll.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapScroll];
+    //http://placas-taxi.herokuapp.com/comentarios.json
+    NSString *urlString = [NSString stringWithFormat:@"http://placas-taxi.herokuapp.com/comentarios.json"];
+    //
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+        if ([data length] >0  )
+        {
+        //   NSArray dat=[[NSArray alloc]initw]
+           //
+          
+            NSString *dato=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSMutableString * miCadena = [NSMutableString stringWithString: dato];
+            NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            //[array addObject:miCadena];
+            tableData=[NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
+         
+            [_tabla reloadData];
+          
+               // NSArray *myArray = [[NSArray alloc] initWithArray:[jsonObject allValues]];
+            
+           
+        }});
+   // tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.a
 }
+-(IBAction)reload:(id)sender
+{
+    [self viewDidLoad];
+}
 -(IBAction)comentar:(id)sender{
 
-   /* NSString *urlString = @"hhttp://placas-taxi.herokuapp.com/comentarios.json";
-	
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-	[request setURL:[NSURL URLWithString:urlString]];
-	[request setHTTPMethod:@"POST"];
-	
-    NSString *boundary = [NSString stringWithString:@"---------------------------14737809831466499882746641449"];
-	NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-	[request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-	
-	NSMutableData *body = [NSMutableData data];
-    
-    
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"comentario[placa]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"A12345" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"comentario[coment]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[_comentario.text dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"comentario[usuario]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"1" dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setHTTPBody:body ];
-    
-    
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-	NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-	
-	NSLog(returnString);
-   
-    NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"hhttp://placas-taxi.herokuapp.com/comentarios"]];
-    [request1 setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
-    [request1 setHTTPBody:[[NSString stringWithFormat:@"comentario[placa]=a12345&comentario[coment]=%@&comentario[usuario]=1",_comentario.text] dataUsingEncoding:NSUTF8StringEncoding]];
-    [request1 setHTTPMethod:@"POST"];
-    NSError *error = nil; NSURLResponse *response = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request1 returningResponse:&response error:&error];
-    if (error) {
-        NSLog(@"Error:%@", error.localizedDescription);
-    }
-    else {
-        //success
-    } */
-    NSString *queryString = [NSString stringWithFormat:@"http://placas-taxi.herokuapp.com/comentarios.json"];
-    
-    NSMutableURLRequest *theRequest=[NSMutableURLRequest
-                                     requestWithURL:[NSURL URLWithString:
-                                                     queryString]
-                                     cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                     timeoutInterval:60.0];
-    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"A12345", @"comentario[placa]",
-                                    @"comentario desde ios", @"comentario[coment]",
-                                    @"1", @"comentario[usuario]",
-                                    nil];
-    NSError *error;
-  //  NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
-    //                                                   options:NSJSONWritingPrettyPrinted error:&error];
-    [theRequest setHTTPMethod:@"POST"];
-    [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    // should check for and handle errors here but we aren't
-    [theRequest setHTTPBody:jsonDictionary];
+    if(flag){
+        UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Gracias" message:@"Ya has comentado este taxi " delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];//success
+        }
+    else{
+      
+        flag=TRUE;
+        NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://placas-taxi.herokuapp.com/comentarios.json"]];
+        [request1 setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+        [request1 setHTTPBody:[[NSString stringWithFormat:@"comentario[placa]=a12345&comentario[coment]=%@&comentario[usuario]=1&buen_comentario=TRUE",_comentario.text] dataUsingEncoding:NSUTF8StringEncoding]];
+        [request1 setHTTPMethod:@"POST"];
+        NSError *error = nil; NSURLResponse *response = nil;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request1 returningResponse:&response error:&error];
+        // NSDictionary *myDictionary = (NSDictionary *) [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+        if (error) {
+            NSLog(@"Error:%@", error.localizedDescription);
+        }
+        else {
+            UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Gracias" message:@"Tu comentario se ah publicado" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];//success
+        }
 
+    
+    }
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [tableData count];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [[tableData objectAtIndex:indexPath.row]objectForKey:@"coment"];
+    return cell;
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void) tapped
+{
+     [self.view endEditing:YES];
+}
 
+-(IBAction)regresar:(id)sender
+{
+    InitViewController *pedir = [[self storyboard] instantiateViewControllerWithIdentifier:@"init"];
+    
+    pedir.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:pedir animated:YES completion:NULL];
+
+}
 @end

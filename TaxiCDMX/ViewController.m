@@ -81,14 +81,7 @@
     [self.view addGestureRecognizer:tapScroll];
     _letra_taxis= @[@"A", @"B",@"M"];
     
-    if ( [delegate.alto intValue] < 568) {
-      
-            NSLog(@"iphone 3.5");
-    }
-    else{
-      NSLog(@"iphone 4");
-    }
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -244,11 +237,12 @@
             delegate.infracciones=[consulta objectForKey:@"infracciones"];
             delegate.tenencias=[[NSMutableDictionary alloc]initWithDictionary:[consulta objectForKey:@"tenencias"] copyItems:true];
             delegate.verificaciones=[consulta objectForKey:@"verificaciones"];
+           
+            
             InitViewController *pedir = [[self storyboard] instantiateViewControllerWithIdentifier:@"init"];
-            
             pedir.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
             [self presentViewController:pedir animated:YES completion:NULL];
+            
             NSLog(@"el taxi debe los años %@",[delegate.tenencias objectForKey:@"adeudos"]);
             
         }
