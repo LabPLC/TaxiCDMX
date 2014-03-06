@@ -37,4 +37,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *submarca;
 @property (weak, nonatomic) IBOutlet UILabel *modelo;
 -(IBAction)volver:(id)sender;
+-(IBAction)comentar:(id)sender;
 @end

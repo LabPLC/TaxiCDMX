@@ -10,7 +10,7 @@
 #import "MainViewController.h"
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
-
+#import "ComentarViewController.h"
 
 @interface MainViewController ()
 
@@ -81,35 +81,76 @@
     for (int i = 0; i < [paginas count]; i++) {
         
         if (i==0) {
-           
+        
+            UIImageView *imageView;
+            UILabel *registro;
+            UILabel *argumento;
             CGRect frame;
-            frame.origin.x = (self.scrollView.frame.size.width * i)+30;
-            frame.origin.y = 15;
-            frame.size.height =220;
-            frame.size.width=220;//self.scrollView.frame.size;
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-            //label
-            
             CGRect frame2;
-            frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
-            frame2.origin.y = frame.size.height+5;
-            frame2.size.height =140;
-            frame2.size.width=240;//self.scrollView.frame.size; ancho
-            UILabel *registro=[[UILabel alloc]initWithFrame:frame2];
-            [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
-            //[registro setFont:[UIFont systemFontOfSize:12]];
-            registro.numberOfLines = 2;
-            registro.textAlignment = NSTextAlignmentCenter;
-            
             CGRect frame_argumento;
-            frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
-            frame_argumento.origin.y = frame.size.height+50;
-            frame_argumento.size.height =140;
-            frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
-            UILabel *argumento=[[UILabel alloc]initWithFrame:frame_argumento];
-            [argumento setFont:[UIFont systemFontOfSize:12]];
-            argumento.numberOfLines = 6;
-            argumento.textAlignment = NSTextAlignmentCenter;
+            if ( [delegate.alto intValue] < 568) {
+               
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+65;
+                frame.origin.y = 15;
+                frame.size.height =150;
+                frame.size.width=150;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+10;
+                frame2.size.height =60;
+                frame2.size.width=250;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+60;
+                frame_argumento.size.height =83;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
+            else{
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+30;
+                frame.origin.y = 15;
+                frame.size.height =220;
+                frame.size.width=220;//self.scrollView.frame.size;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                //label
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+5;
+                frame2.size.height =140;
+                frame2.size.width=240;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                //[registro setFont:[UIFont systemFontOfSize:12]];
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+               
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+50;
+                frame_argumento.size.height =140;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
+
+            
+          
             
             if ([delegate.registrado isEqualToString:@"true"]) {
                 imageView.image = [UIImage imageNamed:@"Taxi_Si.png"];
@@ -126,41 +167,82 @@
                 argumento.text=@"Si abordas este vehículo, sugerimos que lo hagas con precaución. Es posible que este vehículo tenga algún trámite pendiente o esté operando de manera ilegal.";
                 
             }
+            
             [argumento adjustsFontSizeToFitWidth];
             [registro adjustsFontSizeToFitWidth];
             [self.scrollView addSubview:argumento];
             [self.scrollView addSubview:registro];
             [self.scrollView addSubview:imageView];
-                   }
+            
+        }
+        
         else if (i==1){
+            UIImageView *imageView;
+            UILabel *registro;
+            UILabel *argumento;
             CGRect frame;
-            frame.origin.x = (self.scrollView.frame.size.width * i)+30;
-            frame.origin.y = 15;
-            frame.size.height =220;
-            frame.size.width=220;//self.scrollView.frame.size;
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-            //label
-            
             CGRect frame2;
-            frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
-            frame2.origin.y = frame.size.height+5;
-            frame2.size.height =140;
-            frame2.size.width=240;//self.scrollView.frame.size; ancho
-            UILabel *registro=[[UILabel alloc]initWithFrame:frame2];
-            [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
-            //[registro setFont:[UIFont systemFontOfSize:12]];
-            registro.numberOfLines = 5;
-            registro.textAlignment = NSTextAlignmentCenter;
-            
             CGRect frame_argumento;
-            frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
-            frame_argumento.origin.y =frame.size.height+60;
-            frame_argumento.size.height =140;
-            frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
-            UILabel *argumento=[[UILabel alloc]initWithFrame:frame_argumento];
-            [argumento setFont:[UIFont systemFontOfSize:12]];
-            argumento.numberOfLines = 6;
-            argumento.textAlignment = NSTextAlignmentCenter;
+            if ( [delegate.alto intValue] < 568) {
+                
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+65;
+                frame.origin.y = 15;
+                frame.size.height =150;
+                frame.size.width=150;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+10;
+                frame2.size.height =60;
+                frame2.size.width=250;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+60;
+                frame_argumento.size.height =83;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
+            else{
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+30;
+                frame.origin.y = 15;
+                frame.size.height =220;
+                frame.size.width=220;//self.scrollView.frame.size;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                //label
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+5;
+                frame2.size.height =140;
+                frame2.size.width=240;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                //[registro setFont:[UIFont systemFontOfSize:12]];
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+50;
+                frame_argumento.size.height =140;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
             
             //Guardamos la fecha actual en la variable hoy
             NSDate *hoy = [NSDate date];
@@ -187,10 +269,8 @@
             dt2=[df dateFromString:[[delegate.verificaciones objectAtIndex:0] objectForKey:@"vigencia"]];
             
             NSComparisonResult result;
-            //has three possible values: NSOrderedSame,NSOrderedDescending, NSOrderedAscending
-            
-            result = [dt1 compare:dt2]; // comparing two dates
-            
+            result = [dt1 compare:dt2];
+            //comparamos las fechas
             if(result==NSOrderedAscending){
                 
                 imageView.image = [UIImage imageNamed:@"Verificado_si.png"];
@@ -198,25 +278,25 @@
                 registro.textColor=[UIColor colorWithRed:0.784f green:0.718f blue:0.588f alpha:1.0f];
                 argumento.text=@"Esto significa que el vehículo está haciendo lo posible por mantener sus emisiones de carbon por debajo de las establecidas como límite por la ley.";
                         }
-            else if(result==NSOrderedDescending)
-            {
-            imageView.image = [UIImage imageNamed:@"Verificado_no.png"];
-            registro.text=@"Este vehículo NO ha hecho su verificación a tiempo y por lo tanto NO CUMPLE CON LA LEY AMBIENTAL DEL DISTRITO FEDERAL.";
-            registro.textColor=[UIColor colorWithRed:0.557f green:0.031f blue:0.051f alpha:1.0f];
-            argumento.text=@"Esto significa que posiblemente las misiones de carbon del vehículo están por encima de los límites establecidas como límite por la ley.";
-                             }
-            else
-            {
-                registro.numberOfLines = 5;
-                registro.textAlignment = NSTextAlignmentCenter;
-                registro.text=@"Este vehículo ha hecho su verificación a tiempo y por lo tanto CUMPLE CON LA LEY AMBIENTAL DEL DISTRITO FEDERAL.";
-                imageView.image = [UIImage imageNamed:@"Verificado_si.png"];
-                registro.textColor=[UIColor colorWithRed:0.784f green:0.718f blue:0.588f alpha:1.0f];
-                argumento.text=@"Esto significa que el vehículo está haciendo lo posible por mantener sus emisiones de carbon por debajo de las establecidas como límite por la ley.";
+                else if(result==NSOrderedDescending)
+                {
+                    imageView.image = [UIImage imageNamed:@"Verificado_no.png"];
+                    registro.text=@"Este vehículo NO ha hecho su verificación a tiempo y por lo tanto NO CUMPLE CON LA LEY AMBIENTAL DEL DISTRITO FEDERAL.";
+                    registro.textColor=[UIColor colorWithRed:0.557f green:0.031f blue:0.051f alpha:1.0f];
+                    argumento.text=@"Esto significa que posiblemente las misiones de carbon del vehículo están por encima de los límites establecidas como límite por la ley.";
                 
-               
-   
-            }
+                }
+                else
+                {
+                    registro.numberOfLines = 5;
+                    registro.textAlignment = NSTextAlignmentCenter;
+                    registro.text=@"Este vehículo ha hecho su verificación a tiempo y por lo tanto CUMPLE CON LA LEY AMBIENTAL DEL DISTRITO FEDERAL.";
+                    imageView.image = [UIImage imageNamed:@"Verificado_si.png"];
+                    registro.textColor=[UIColor colorWithRed:0.784f green:0.718f blue:0.588f alpha:1.0f];
+                    argumento.text=@"Esto significa que el vehículo está haciendo lo posible por mantener sus emisiones de carbon por debajo de las establecidas como límite por la ley.";
+             
+                }
+                
             }
             [registro adjustsFontSizeToFitWidth];
             [argumento adjustsFontSizeToFitWidth];
@@ -228,45 +308,84 @@
         }
         else if (i==2){
             
-             CGRect frame;
-             frame.origin.x = (self.scrollView.frame.size.width * i)+30;
-             frame.origin.y = 15;
-             frame.size.height =220;
-             frame.size.width=220;//self.scrollView.frame.size;
-             UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-             //label
-             
-             CGRect frame2;
-             frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
-             frame2.origin.y = frame.size.height+5;
-             frame2.size.height =140;
-             frame2.size.width=240;//self.scrollView.frame.size; ancho
-             UILabel *registro=[[UILabel alloc]initWithFrame:frame2];
-            [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
-            //[registro setFont:[UIFont systemFontOfSize:12]];
-             registro.numberOfLines = 5;
-             registro.textAlignment = NSTextAlignmentCenter;
-             
-             CGRect frame_argumento;
-             frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
-             frame_argumento.origin.y =frame.size.height+50;
-            frame_argumento.size.height =140;
-             frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
-             UILabel *argumento=[[UILabel alloc]initWithFrame:frame_argumento];
-             [argumento setFont:[UIFont systemFontOfSize:12]];
-             argumento.numberOfLines = 6;
-             argumento.textAlignment = NSTextAlignmentCenter;
+            UIImageView *imageView;
+            UILabel *registro;
+            UILabel *argumento;
+            CGRect frame;
+            CGRect frame2;
+            CGRect frame_argumento;
+            if ( [delegate.alto intValue] < 568) {
+                
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+65;
+                frame.origin.y = 15;
+                frame.size.height =150;
+                frame.size.width=150;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+10;
+                frame2.size.height =60;
+                frame2.size.width=250;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+60;
+                frame_argumento.size.height =83;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
+            else{
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+30;
+                frame.origin.y = 15;
+                frame.size.height =220;
+                frame.size.width=220;//self.scrollView.frame.size;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                //label
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+5;
+                frame2.size.height =140;
+                frame2.size.width=240;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                //[registro setFont:[UIFont systemFontOfSize:12]];
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+50;
+                frame_argumento.size.height =140;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
             
             
             if ([delegate.tenencias objectForKey:@"adeudos"]==NULL) {
-                //pagina.text=@"no tiene adeudos";
+                
                 if([delegate.infracciones count]==0){
                     imageView.image = [UIImage imageNamed:@"Adeudos_no.png"];
                     registro.text=@"Este vehículo no presenta adeudos con Secretaría de Finanzas.";
                     registro.textColor=[UIColor colorWithRed:0.784f green:0.718f blue:0.588f alpha:1.0f];
                     argumento.text=@"Esto incluye pagos por derechos como los son tenencia e infracciones.";
                 }
-                else{
+                else
+                {
                     int infracciones=0;
                    // infracciones.text=[NSString stringWithFormat:@"%i",[delegate.infracciones count]];
                     for (int i=0; i< [delegate.infracciones count]; i++) {
@@ -311,34 +430,72 @@
         }
         else{
             
+            UIImageView *imageView;
+            UILabel *registro;
+            UILabel *argumento;
             CGRect frame;
-            frame.origin.x = (self.scrollView.frame.size.width * i)+30;
-            frame.origin.y = 15;
-            frame.size.height =220;
-            frame.size.width=220;//self.scrollView.frame.size;
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-            //label
-            
             CGRect frame2;
-            frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
-            frame2.origin.y = frame.size.height+5;
-            frame2.size.height =140;
-            frame2.size.width=240;//self.scrollView.frame.size; ancho
-            UILabel *registro=[[UILabel alloc]initWithFrame:frame2];
-           [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
-            // [registro setFont:[UIFont systemFontOfSize:12]];
-            registro.numberOfLines = 5;
-            registro.textAlignment = NSTextAlignmentCenter;
-            
             CGRect frame_argumento;
-            frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
-            frame_argumento.origin.y =frame.size.height+60;
-            frame_argumento.size.height =140;
-            frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
-            UILabel *argumento=[[UILabel alloc]initWithFrame:frame_argumento];
-            [argumento setFont:[UIFont systemFontOfSize:12]];
-            argumento.numberOfLines = 6;
-            argumento.textAlignment = NSTextAlignmentCenter;
+            if ( [delegate.alto intValue] < 568) {
+                
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+65;
+                frame.origin.y = 15;
+                frame.size.height =150;
+                frame.size.width=150;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+10;
+                frame2.size.height =60;
+                frame2.size.width=250;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+60;
+                frame_argumento.size.height =83;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
+            else{
+                
+                frame.origin.x = (self.scrollView.frame.size.width * i)+30;
+                frame.origin.y = 15;
+                frame.size.height =220;
+                frame.size.width=220;//self.scrollView.frame.size;
+                imageView = [[UIImageView alloc] initWithFrame:frame];
+                //label
+                
+                
+                frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame2.origin.y = frame.size.height+5;
+                frame2.size.height =140;
+                frame2.size.width=240;//self.scrollView.frame.size; ancho
+                registro=[[UILabel alloc]initWithFrame:frame2];
+                [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
+                //[registro setFont:[UIFont systemFontOfSize:12]];
+                registro.numberOfLines = 2;
+                registro.textAlignment = NSTextAlignmentCenter;
+                
+                
+                frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
+                frame_argumento.origin.y = frame.size.height+50;
+                frame_argumento.size.height =140;
+                frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
+                argumento=[[UILabel alloc]initWithFrame:frame_argumento];
+                [argumento setFont:[UIFont systemFontOfSize:12]];
+                argumento.numberOfLines = 6;
+                argumento.textAlignment = NSTextAlignmentCenter;
+            }
             argumento.text=@"Esto incluye infracciones como estacionar el vehículo en lugares prohibidos, conducir a exceso de velocidad, vueltas prohibidas, etc.";
              
              if([delegate.infracciones count]==0){
@@ -365,7 +522,18 @@
 }
 -(IBAction)volver:(id)sender
 {
-    ViewController *volver = [[self storyboard] instantiateViewControllerWithIdentifier:@"inicio"];
+    ViewController *volver;
+    
+    if ( [delegate.alto intValue] < 568) {
+        volver = [[self storyboard] instantiateViewControllerWithIdentifier:@"inicio1"];
+        NSLog(@"iphone 3.5");
+    }
+    else{
+        volver = [[self storyboard] instantiateViewControllerWithIdentifier:@"inicio"];
+        NSLog(@"iphone 4");
+    }
+
+    
     
     volver.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:volver animated:YES completion:NULL];
@@ -388,6 +556,14 @@
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
+}
+-(IBAction)comentar:(id)sender
+{
+    ComentarViewController *comentar;
+    comentar = [[self storyboard] instantiateViewControllerWithIdentifier:@"comentar"];
+    comentar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:comentar animated:YES completion:NULL];
+
 }
 
 @end

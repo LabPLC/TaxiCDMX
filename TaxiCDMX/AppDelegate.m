@@ -17,14 +17,24 @@
     CGFloat screenHeight = screenSize.height;
     _alto= [NSString stringWithFormat:@"%f",screenHeight];
     NSLog(@"%@",_alto);
-    
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone"
                                                              bundle: nil];
-    //[self.storyboard instantiateViewControllerWithIdentifier:@"Taxi1"];
-
-    ViewController *controller = (ViewController*)[mainStoryboard
+    ViewController *controller;
+    
+    if ( [_alto intValue] < 568) {
+         controller = (ViewController*)[mainStoryboard
                                                        instantiateViewControllerWithIdentifier: @"inicio1"];
-self.window.rootViewController = controller;
+        NSLog(@"iphone 3.5");
+    }
+    else{
+         controller = (ViewController*)[mainStoryboard
+                                                       instantiateViewControllerWithIdentifier: @"inicio"];
+        NSLog(@"iphone 4");
+    }
+
+
+   
+    self.window.rootViewController = controller;
     // Override point for customization after application launch.
     return YES;
 }

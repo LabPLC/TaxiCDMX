@@ -105,6 +105,9 @@
     if ([_letra.text isEqualToString:@"a"] || [_letra.text isEqualToString:@"A"] || [_letra.text isEqualToString:@"B"] || [_letra.text isEqualToString:@"b"] || [_letra.text isEqualToString:@"M"] || [_letra.text isEqualToString:@"m"] ) {
         NSString *placas= [NSString stringWithFormat:@"%@%@",_letra.text,_placa.text];
         delegate.placa=placas;
+        if (_imagen.image!=nil) {
+            [self mandarFoto];
+        }
         loading=[[UIView alloc]initWithFrame:CGRectMake(10, 20, 300, 250)];
         loading.backgroundColor=[UIColor blackColor];
         loading.alpha=0.8;
@@ -341,5 +344,45 @@
 
 -(IBAction)focus:(id)sender{
 [_placa becomeFirstResponder];
+}
+
+-(void)mandarFoto{
+
+
+   
+    
+    NSData *imageData = UIImageJPEGRepresentation(_imagen.image, 1.0);
+    
+    NSString *urlString = @"http://lionteamsoft.comli.com/subir_veritaxi.php";
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = [NSString stringWithString:@"---------------------------14737809831466499882746641449"];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    NSMutableData *body = [NSMutableData data];
+    
+    
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSString *aux=[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"%@.png\"\r\n",delegate.placa];
+    NSLog(@"%@",aux);
+    [body appendData:[[NSString stringWithString:aux] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [body appendData:[[NSString stringWithString:@"Content-Type: application/octet-stream\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:imageData]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    // setting the body of the post to the reqeust
+    [request setHTTPBody:body];
+    
+    // now lets make the connection to the web
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    
+    NSLog(returnString);
+
 }
 @end

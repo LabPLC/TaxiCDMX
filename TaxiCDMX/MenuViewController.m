@@ -10,7 +10,7 @@
 
 #import "MenuViewController.h"
 #import "ECSlidingViewController.h"
-
+#import "CustomCell.h"
 @interface MenuViewController ()
 
 @property (strong, nonatomic) NSArray *menu;
@@ -70,10 +70,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor=[UIColor greenColor];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
@@ -132,8 +132,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    NSString *identifier = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
-    
+    NSString *identifier;
+    if ( [delegate.alto intValue] < 568) {
+        identifier = [NSString stringWithFormat:@"%@1", [self.menu objectAtIndex:indexPath.row]];
+       
+    }
+    else{
+       identifier = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
+    }
+
     UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{

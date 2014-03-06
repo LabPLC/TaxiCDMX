@@ -8,7 +8,7 @@
 //
 
 #import "InitViewController.h"
-
+#import "AppDelegate.h"
 @interface InitViewController ()
 
 @end
@@ -33,8 +33,18 @@
     //self.view.backgroundColor=[UIColor colorWithRed:0.573 green:0.467 blue:0.282 alpha:1]; /*#927748*/
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    AppDelegate *delegate;
+    delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Taxi1"];
+    if ( [delegate.alto intValue] < 568) {
+        
+        NSLog(@"iphone 3.5");
+        self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Taxi1"];
+    }
+    else{
+        self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Taxi"];
+        NSLog(@"iphone 4");
+    }
     
 }
 - (void)didReceiveMemoryWarning
