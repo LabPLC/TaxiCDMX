@@ -30,6 +30,7 @@
 		F31B9B0F18A5D0FF00B5D654 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0C18A5D0FF00B5D654 /* ECSlidingViewController.m */; };
 		F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */; };
 		F3529A4D18A9DA2600C44CB2 /* pollution_taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = F3529A4C18A9DA2600C44CB2 /* pollution_taxi.png */; };
+		F36D85F718CA2D9300F660DA /* InformacionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36D85F618CA2D9300F660DA /* InformacionViewController.m */; };
 		F396DAE218B3269100959BFF /* Tesseract.mm in Sources */ = {isa = PBXBuildFile; fileRef = F396DAE118B3269100959BFF /* Tesseract.mm */; };
 		F396DAE418B326B500959BFF /* otros.png in Resources */ = {isa = PBXBuildFile; fileRef = F396DAE318B326B500959BFF /* otros.png */; };
 		F396DAE718B3287300959BFF /* liblept.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F396DAE518B3287300959BFF /* liblept.a */; };
@@ -101,6 +102,8 @@
 		F31B9B0D18A5D0FF00B5D654 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		F31B9B0E18A5D0FF00B5D654 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		F3529A4C18A9DA2600C44CB2 /* pollution_taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pollution_taxi.png; sourceTree = "<group>"; };
+		F36D85F518CA2D9300F660DA /* InformacionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformacionViewController.h; sourceTree = "<group>"; };
+		F36D85F618CA2D9300F660DA /* InformacionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformacionViewController.m; sourceTree = "<group>"; };
 		F396DA4218B325ED00959BFF /* build_dependencies.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_dependencies.sh; sourceTree = "<group>"; };
 		F396DA4418B325ED00959BFF /* allheaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = allheaders.h; sourceTree = "<group>"; };
 		F396DA4518B325ED00959BFF /* alltypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = alltypes.h; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 				F31B9B0018A5D0ED00B5D654 /* MenuViewController.m */,
 				F31B9B0118A5D0ED00B5D654 /* MainViewController.h */,
 				F31B9B0218A5D0ED00B5D654 /* MainViewController.m */,
+				F36D85F518CA2D9300F660DA /* InformacionViewController.h */,
+				F36D85F618CA2D9300F660DA /* InformacionViewController.m */,
 				F3AEF71118C939DD0065FD99 /* InfraccionesViewController.h */,
 				F3AEF71218C939DD0065FD99 /* InfraccionesViewController.m */,
 				F31B9B0318A5D0ED00B5D654 /* SecondViewController.h */,
@@ -819,6 +824,7 @@
 				F3AEF71618C9485C0065FD99 /* NSString+HTML.m in Sources */,
 				F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */,
 				F31B9B0818A5D0ED00B5D654 /* SecondViewController.m in Sources */,
+				F36D85F718CA2D9300F660DA /* InformacionViewController.m in Sources */,
 				F396DAE218B3269100959BFF /* Tesseract.mm in Sources */,
 				F31B9B0518A5D0ED00B5D654 /* InitViewController.m in Sources */,
 				F31B9B0F18A5D0FF00B5D654 /* ECSlidingViewController.m in Sources */,

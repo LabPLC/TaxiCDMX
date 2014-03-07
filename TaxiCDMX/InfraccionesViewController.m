@@ -9,6 +9,7 @@
 #import "InfraccionesViewController.h"
 #import "InitViewController.h"
 #import "AppDelegate.h"
+
 #import "NSString+HTML.h"
 @interface InfraccionesViewController ()
 
@@ -33,7 +34,7 @@
 - (void)viewDidLoad
 {
     delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
+  
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

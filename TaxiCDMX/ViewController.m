@@ -9,13 +9,16 @@
 #import "ViewController.h"
 #import "InitViewController.h"
 #import "Tesseract.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
-
+{
+    AppDelegate * delegate;
+}
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -109,9 +112,20 @@
                  [self mandarFoto];
              }
         
-             loading=[[UIView alloc]initWithFrame:CGRectMake(10, 20, 300, 250)];
+             if ([delegate.alto intValue] < 568)
+             {
+                 loading=[[UIView alloc]initWithFrame:CGRectMake(10, 20, 300, 240)];
+             }
+             
+             else
+             {
+             
+                 loading=[[UIView alloc]initWithFrame:CGRectMake(10, 20, 300, 330)];
+             }
              loading.backgroundColor=[UIColor blackColor];
              loading.alpha=0.8;
+             loading.layer.cornerRadius = 5;
+             loading.layer.masksToBounds = YES;
         
              spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
              [spinner setCenter:CGPointMake(loading.frame.size.width/2.0, loading.frame.size.height/2.0)];

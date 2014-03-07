@@ -62,7 +62,7 @@
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
-    
+
     self.menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     menuBtn.frame = CGRectMake(8, 30, 34, 24);
     [menuBtn setBackgroundImage:[UIImage imageNamed:@"menuButton.png"] forState:UIControlStateNormal];
@@ -203,7 +203,7 @@
                 registro=[[UILabel alloc]initWithFrame:frame2];
                 [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
                 
-                registro.numberOfLines = 3;
+                registro.numberOfLines = 4;
                 registro.textAlignment = NSTextAlignmentCenter;
                 
                 
@@ -229,7 +229,7 @@
                 frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
                 frame2.origin.y = frame.size.height+5;
                 frame2.size.height =140;
-                frame2.size.width=240;//self.scrollView.frame.size; ancho
+                frame2.size.width=260;//self.scrollView.frame.size; ancho
                 registro=[[UILabel alloc]initWithFrame:frame2];
                 [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
                 //[registro setFont:[UIFont systemFontOfSize:12]];
@@ -593,9 +593,18 @@
 
 -(IBAction)comentar:(id)sender
 {
-    // Cargamos una pantalla donde el usuario podra comentar y leer comentarios
+    
     ComentarViewController *comentar;
-    comentar = [[self storyboard] instantiateViewControllerWithIdentifier:@"comentar"];
+    
+    if ( [delegate.alto intValue] < 568) {
+      comentar = [[self storyboard] instantiateViewControllerWithIdentifier:@"comentar1"];
+        
+    }
+    else
+    {
+      comentar = [[self storyboard] instantiateViewControllerWithIdentifier:@"comentar"];
+    }
+    // Cargamos una pantalla donde el usuario podra comentar y leer comentarios
     comentar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:comentar animated:YES completion:NULL];
     
@@ -610,9 +619,18 @@
         [alert show];
     }
     else{
+        
         // Cargamos una pantalla donde el usuario podra comentar y leer comentarios
         InfraccionesViewController *infracciones;
-        infracciones = [[self storyboard] instantiateViewControllerWithIdentifier:@"infracciones"];
+        if ( [delegate.alto intValue] < 568) {
+            infracciones = [[self storyboard] instantiateViewControllerWithIdentifier:@"infracciones1"];
+            
+        }
+        else
+        {
+            infracciones = [[self storyboard] instantiateViewControllerWithIdentifier:@"infracciones"];
+        }
+        
         infracciones.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:infracciones animated:YES completion:NULL];}
 }

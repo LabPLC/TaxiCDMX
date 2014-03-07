@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+
 
 @interface ViewController : UIViewController 
 {
-    AppDelegate *delegate;
+
     UIView *loading;
     UIActivityIndicatorView *spinner;
     NSURLConnection *postConnection;
