@@ -12,24 +12,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+ 
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
     CGFloat screenHeight = screenSize.height;
     _alto= [NSString stringWithFormat:@"%f",screenHeight];
-    NSLog(@"%@",_alto);
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone"
-                                                             bundle: nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle: nil];
+    //Idenfica El Tamaño de la Pantalla 
     ViewController *controller;
     
     if ( [_alto intValue] < 568) {
          controller = (ViewController*)[mainStoryboard
                                                        instantiateViewControllerWithIdentifier: @"inicio1"];
-        NSLog(@"iphone 3.5");
+    
     }
     else{
          controller = (ViewController*)[mainStoryboard
                                                        instantiateViewControllerWithIdentifier: @"inicio"];
-        NSLog(@"iphone 4");
     }
 
 

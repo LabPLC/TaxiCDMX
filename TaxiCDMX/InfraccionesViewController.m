@@ -26,7 +26,10 @@
     }
     return self;
 }
-
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 - (void)viewDidLoad
 {
     delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
