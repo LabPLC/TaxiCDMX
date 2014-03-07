@@ -48,6 +48,8 @@
 		F3A9087818B2CB3D00C890F6 /* Taxi_Si.png in Resources */ = {isa = PBXBuildFile; fileRef = F3A9086018B2CB3D00C890F6 /* Taxi_Si.png */; };
 		F3A9087A18B2CB3D00C890F6 /* Verificado_no.png in Resources */ = {isa = PBXBuildFile; fileRef = F3A9086218B2CB3D00C890F6 /* Verificado_no.png */; };
 		F3A9087C18B2CB3D00C890F6 /* Verificado_si.png in Resources */ = {isa = PBXBuildFile; fileRef = F3A9086418B2CB3D00C890F6 /* Verificado_si.png */; };
+		F3AEF71318C939DE0065FD99 /* InfraccionesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AEF71218C939DD0065FD99 /* InfraccionesViewController.m */; };
+		F3AEF71618C9485C0065FD99 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AEF71518C9485C0065FD99 /* NSString+HTML.m */; };
 		F3B30CC018C7B17E008CE2F5 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30CBF18C7B17E008CE2F5 /* CustomCell.m */; };
 		F3B30CC318C7EAA5008CE2F5 /* ComentarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B30CC218C7EAA5008CE2F5 /* ComentarViewController.m */; };
 		F3B4C44118B406C1009580C8 /* TaxiScan-AssetsArrowNext.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B4C44018B406C1009580C8 /* TaxiScan-AssetsArrowNext.png */; };
@@ -267,6 +269,10 @@
 		F3A9086018B2CB3D00C890F6 /* Taxi_Si.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Taxi_Si.png; sourceTree = "<group>"; };
 		F3A9086218B2CB3D00C890F6 /* Verificado_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Verificado_no.png; sourceTree = "<group>"; };
 		F3A9086418B2CB3D00C890F6 /* Verificado_si.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Verificado_si.png; sourceTree = "<group>"; };
+		F3AEF71118C939DD0065FD99 /* InfraccionesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfraccionesViewController.h; sourceTree = "<group>"; };
+		F3AEF71218C939DD0065FD99 /* InfraccionesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfraccionesViewController.m; sourceTree = "<group>"; };
+		F3AEF71418C9485C0065FD99 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		F3AEF71518C9485C0065FD99 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		F3B30CBE18C7B17E008CE2F5 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		F3B30CBF18C7B17E008CE2F5 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		F3B30CC118C7EAA5008CE2F5 /* ComentarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComentarViewController.h; sourceTree = "<group>"; };
@@ -367,6 +373,8 @@
 		F31B9ACB18A5D07B00B5D654 /* TaxiCDMX */ = {
 			isa = PBXGroup;
 			children = (
+				F3AEF71418C9485C0065FD99 /* NSString+HTML.h */,
+				F3AEF71518C9485C0065FD99 /* NSString+HTML.m */,
 				F396DADE18B3260B00959BFF /* tessdata */,
 				F3A9087D18B3236B00C890F6 /* ocr */,
 				F31159E118AAB04C002E3F25 /* Iconografia */,
@@ -377,6 +385,8 @@
 				F31B9B0018A5D0ED00B5D654 /* MenuViewController.m */,
 				F31B9B0118A5D0ED00B5D654 /* MainViewController.h */,
 				F31B9B0218A5D0ED00B5D654 /* MainViewController.m */,
+				F3AEF71118C939DD0065FD99 /* InfraccionesViewController.h */,
+				F3AEF71218C939DD0065FD99 /* InfraccionesViewController.m */,
 				F31B9B0318A5D0ED00B5D654 /* SecondViewController.h */,
 				F31B9B0418A5D0ED00B5D654 /* SecondViewController.m */,
 				F30B0F3B18AD557F00DAB3BB /* ConductorViewController.h */,
@@ -801,10 +811,12 @@
 			files = (
 				F31B9ADF18A5D07B00B5D654 /* ViewController.m in Sources */,
 				F31B9B0718A5D0ED00B5D654 /* MainViewController.m in Sources */,
+				F3AEF71318C939DE0065FD99 /* InfraccionesViewController.m in Sources */,
 				F3B30CC018C7B17E008CE2F5 /* CustomCell.m in Sources */,
 				F30B0F3D18AD557F00DAB3BB /* ConductorViewController.m in Sources */,
 				F3B30CC318C7EAA5008CE2F5 /* ComentarViewController.m in Sources */,
 				F31B9AD618A5D07B00B5D654 /* AppDelegate.m in Sources */,
+				F3AEF71618C9485C0065FD99 /* NSString+HTML.m in Sources */,
 				F31B9B1018A5D0FF00B5D654 /* UIImage+ImageWithUIView.m in Sources */,
 				F31B9B0818A5D0ED00B5D654 /* SecondViewController.m in Sources */,
 				F396DAE218B3269100959BFF /* Tesseract.mm in Sources */,

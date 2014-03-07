@@ -11,6 +11,7 @@
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
 #import "ComentarViewController.h"
+#import "InfraccionesViewController.h"
 
 @interface MainViewController ()
 
@@ -436,6 +437,8 @@
             CGRect frame;
             CGRect frame2;
             CGRect frame_argumento;
+            CGRect frame_infracciones_button;
+            UIButton *infracciones=[UIButton buttonWithType:UIButtonTypeRoundedRect];
             if ( [delegate.alto intValue] < 568) {
                 
                 
@@ -478,23 +481,36 @@
                 
                 frame2.origin.x = (self.scrollView.frame.size.width * i)+20;
                 frame2.origin.y = frame.size.height+5;
-                frame2.size.height =140;
+                frame2.size.height =150;
                 frame2.size.width=240;//self.scrollView.frame.size; ancho
                 registro=[[UILabel alloc]initWithFrame:frame2];
                 [registro setFont:[UIFont fontWithName:@"Arial-BoldMT" size:12]];
                 //[registro setFont:[UIFont systemFontOfSize:12]];
-                registro.numberOfLines = 2;
+                registro.numberOfLines = 3;
                 registro.textAlignment = NSTextAlignmentCenter;
                 
                 
                 frame_argumento.origin.x = (self.scrollView.frame.size.width * i)+20;
-                frame_argumento.origin.y = frame.size.height+50;
+                frame_argumento.origin.y = frame.size.height+60;
                 frame_argumento.size.height =140;
                 frame_argumento.size.width=240;//self.scrollView.frame.size; ancho
                 argumento=[[UILabel alloc]initWithFrame:frame_argumento];
                 [argumento setFont:[UIFont systemFontOfSize:12]];
                 argumento.numberOfLines = 6;
                 argumento.textAlignment = NSTextAlignmentCenter;
+                
+                frame_infracciones_button.origin.x=(self.scrollView.frame.size.width * i)+40;
+                frame_infracciones_button.origin.y=frame.size.height+110;
+                frame_infracciones_button.size.height =100;
+                frame_infracciones_button.size.width =120;
+                infracciones.frame=frame_infracciones_button;
+                [infracciones addTarget:self
+                           action:@selector(verInfracciones:)
+                 forControlEvents:UIControlEventTouchDown];
+                [infracciones setTitle:@"Ver Infracciones" forState:UIControlStateNormal];
+              
+                
+                
             }
             argumento.text=@"Esto incluye infracciones como estacionar el vehículo en lugares prohibidos, conducir a exceso de velocidad, vueltas prohibidas, etc.";
              
@@ -510,6 +526,7 @@
                  registro.textColor=[UIColor colorWithRed:0.557f green:0.031f blue:0.051f alpha:1.0f];
                  
              }
+            [self.scrollView addSubview:infracciones];
             [registro adjustsFontSizeToFitWidth];
             [argumento adjustsFontSizeToFitWidth];
             [self.scrollView addSubview:argumento];
@@ -522,27 +539,24 @@
 }
 -(IBAction)volver:(id)sender
 {
+    //Regresa a la pantalla de inicio
     ViewController *volver;
     
     if ( [delegate.alto intValue] < 568) {
         volver = [[self storyboard] instantiateViewControllerWithIdentifier:@"inicio1"];
-        NSLog(@"iphone 3.5");
+       
     }
-    else{
+    else
+    {
         volver = [[self storyboard] instantiateViewControllerWithIdentifier:@"inicio"];
-        NSLog(@"iphone 4");
     }
-
-    
-    
     volver.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:volver animated:YES completion:NULL];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    }
 
 - (IBAction)revealMenu:(id)sender
 {
@@ -557,8 +571,10 @@
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
 }
+
 -(IBAction)comentar:(id)sender
 {
+    // Cargamos una pantalla donde el usuario podra comentar y leer comentarios
     ComentarViewController *comentar;
     comentar = [[self storyboard] instantiateViewControllerWithIdentifier:@"comentar"];
     comentar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -566,4 +582,19 @@
 
 }
 
+-(IBAction)verInfracciones:(id)sender
+{
+    
+     if([delegate.infracciones count]==0){
+     
+         UIAlertView *alert=[[UIAlertView alloc] initWithTitle: @" Atención "message: @"Este Taxi no tiene Infracciones Registradas" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
+         [alert show];
+     }
+     else{
+    // Cargamos una pantalla donde el usuario podra comentar y leer comentarios
+    InfraccionesViewController *infracciones;
+       infracciones = [[self storyboard] instantiateViewControllerWithIdentifier:@"infracciones"];
+    infracciones.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+         [self presentViewController:infracciones animated:YES completion:NULL];}
+}
 @end

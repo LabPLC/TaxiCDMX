@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "InitViewController.h"
 #import "Tesseract.h"
+
 @interface ViewController ()
 
 @end
@@ -61,9 +62,10 @@
         [alerta show];
     }
 }
-
 - (void)viewDidLoad
 {
+    
+    
    [_letra becomeFirstResponder];
     //_imagen.hidden=TRUE;
    // [self escanear:nil];

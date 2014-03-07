@@ -8,6 +8,7 @@
 
 #import "ComentarViewController.h"
 #import "InitViewController.h"
+#import "AppDelegate.h"
 @interface ComentarViewController ()
 
 @end
@@ -16,6 +17,7 @@
 {
     NSMutableArray *tableData;
     BOOL flag;
+    AppDelegate * delegate;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,8 +34,10 @@
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self     action:@selector(tapped)];
     tapScroll.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapScroll];
+    delegate= (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     //http://placas-taxi.herokuapp.com/comentarios.json
-    NSString *urlString = [NSString stringWithFormat:@"http://placas-taxi.herokuapp.com/comentarios.json"];
+    NSString *urlString = [NSString stringWithFormat:@"http://placas-taxi.herokuapp.com/placas/%@.json",delegate.placa];
     //
     dispatch_async(dispatch_get_main_queue(), ^{
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
@@ -45,9 +49,13 @@
             NSString *dato=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSMutableString * miCadena = [NSMutableString stringWithString: dato];
             NSData *data1 = [miCadena dataUsingEncoding:NSUTF8StringEncoding];
-            NSMutableArray *array = [[NSMutableArray alloc] init];
+            NSDictionary *comentarios=[NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
             //[array addObject:miCadena];
-            tableData=[NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
+            
+            
+            
+            tableData=[comentarios objectForKey:@"comentarios"];
+            //[NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingAllowFragments error:nil];
          
             [_tabla reloadData];
           
@@ -74,7 +82,7 @@
         flag=TRUE;
         NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://placas-taxi.herokuapp.com/comentarios.json"]];
         [request1 setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
-        [request1 setHTTPBody:[[NSString stringWithFormat:@"comentario[placa]=a12345&comentario[coment]=%@&comentario[usuario]=1&buen_comentario=TRUE",_comentario.text] dataUsingEncoding:NSUTF8StringEncoding]];
+        [request1 setHTTPBody:[[NSString stringWithFormat:@"comentario[placa]=%@&comentario[coment]=%@&comentario[usuario]=1&comentario[buen_comentario]=1",delegate.placa,_comentario.text] dataUsingEncoding:NSUTF8StringEncoding]];
         [request1 setHTTPMethod:@"POST"];
         NSError *error = nil; NSURLResponse *response = nil;
         NSData *data = [NSURLConnection sendSynchronousRequest:request1 returningResponse:&response error:&error];
@@ -122,7 +130,7 @@
 {
     InitViewController *pedir = [[self storyboard] instantiateViewControllerWithIdentifier:@"init"];
     
-    pedir.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    pedir.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     
     [self presentViewController:pedir animated:YES completion:NULL];
 

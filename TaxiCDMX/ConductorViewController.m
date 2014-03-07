@@ -30,7 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self     action:@selector(tapped)];
+    tapScroll.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapScroll];
     self.view.layer.shadowOpacity = 0.75f;
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -121,5 +123,10 @@
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
+- (void) tapped
+{
+    [self.view endEditing:YES];
+}
+
 
 @end
